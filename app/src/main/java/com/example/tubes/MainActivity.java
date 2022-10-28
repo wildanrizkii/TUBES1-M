@@ -1,7 +1,9 @@
 package com.example.tubes;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen((GravityCompat.START))){
@@ -68,60 +71,66 @@ public class MainActivity extends AppCompatActivity {
         } else{
             super.onBackPressed();
         }
-        /*
-        if (isBackPressedOnce){
-            super.onBackPressed();
-            return;
-        }
-        Toast.makeText(this,"Press once again to exit!", Toast.LENGTH_SHORT).show();
-        isBackPressedOnce = true;
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                isBackPressedOnce = false;
-            }
-        }, 2000);
-         */
+
+        if(pertemuanFragment.isInLayout()){
+            System.out.println(fragmentManager.getBackStackEntryCount());
+        }
+//        if (isBackPressedOnce){
+//            super.onBackPressed();
+//            return;
+//        }
+//        Toast.makeText(this,"Press once again to exit!", Toast.LENGTH_SHORT).show();
+//        isBackPressedOnce = true;
+//
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                isBackPressedOnce = false;
+//            }
+//        }, 2000);
+
     }
 
     public void changePage (int page) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        if (page == 1) {
-            if (this.pertemuanFragment.isAdded()) {
-                ft.show(pertemuanFragment);
-            } else {
-                ft.add(R.id.fragment_container, this.pertemuanFragment).addToBackStack(null);
+        if(page == 1){
+            if(this.homeFragment.isAdded()){
+                ft.show(homeFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.homeFragment);
             }
-            if (this.homeFragment.isAdded()) {
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }if(this.pertemuanFragment.isAdded()) {
+                ft.hide(this.pertemuanFragment);
+            }
+        }else if(page == 2){
+            if(this.dokterFragment.isAdded()) {
+                ft.show(dokterFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack("home");
+            }
+            if(this.homeFragment.isAdded()){
                 ft.hide(this.homeFragment);
-            } else if (this.dokterFragment.isAdded()){
+            }if(this.pertemuanFragment.isAdded()) {
+                ft.hide(this.pertemuanFragment);
+            }
+        }else if(page == 3){
+            if(this.pertemuanFragment.isAdded()) {
+                ft.show(pertemuanFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.pertemuanFragment).addToBackStack("home");
+            }
+            if(this.homeFragment.isAdded()){
+                ft.hide(this.homeFragment);
+            }if(this.dokterFragment.isAdded()) {
                 ft.hide(this.dokterFragment);
             }
-        } else if (page == 2) {
-            if (this.homeFragment.isAdded()) {
-                ft.show(homeFragment);
-            } else {
-                ft.add(R.id.fragment_container, this.homeFragment).addToBackStack(null);
-            }
-            if (this.pertemuanFragment.isAdded()) {
-                ft.hide(this.pertemuanFragment);
-            }
-        } else if (page == 4){
-            if (this.dokterFragment.isAdded()) {
-                ft.show(dokterFragment);
-            } else {
-                ft.add(R.id.fragment_container, this.dokterFragment).addToBackStack(null);
-            }
-            if (this.pertemuanFragment.isAdded()) {
-                ft.hide(this.pertemuanFragment);
-            }
-            if (this.homeFragment.isAdded()) {
-                ft.hide(this.homeFragment);
-            }
-        } else{
+        }else{
             closeApplication();
         }
+        System.out.println(fragmentManager.getBackStackEntryCount());
         ft.commit();
         this.drawer.closeDrawers();
     }
