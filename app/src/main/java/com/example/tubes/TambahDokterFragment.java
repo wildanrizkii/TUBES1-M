@@ -16,6 +16,13 @@ public class TambahDokterFragment extends Fragment {
     public TambahDokterFragment(){}
     FragmentTambahDokterBinding binding;
 
+    public static TambahDokterFragment newInstance(String title) {
+        Bundle args = new Bundle();
+        TambahDokterFragment fragment = new TambahDokterFragment();
+        args.putString("title", title);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,7 +33,7 @@ public class TambahDokterFragment extends Fragment {
 
     private void onClickSimpan(View view) {
         Bundle result = new Bundle();
-        result.putInt("page", 2);
+        result.putInt("page", 4);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
     }

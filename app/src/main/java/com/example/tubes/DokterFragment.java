@@ -1,6 +1,7 @@
 package com.example.tubes;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,14 @@ public class DokterFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDokterBinding.inflate(inflater);
+        binding.btnPlus.setOnClickListener(this::onClick);
         return binding.getRoot();
+    }
 
+    private void onClick(View view) {
+        Bundle result = new Bundle();
+        result.putInt("page", 4);
+        Log.d("debug", "ClickMe Clickeddd!");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

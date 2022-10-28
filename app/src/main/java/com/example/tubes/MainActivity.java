@@ -1,9 +1,7 @@
 package com.example.tubes;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     DokterFragment dokterFragment;
     LeftFragment leftFragment;
     PertemuanFragment pertemuanFragment;
+    TambahDokterFragment tambahDokterFragment;
 
     ListView listView;
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        this.tambahDokterFragment = TambahDokterFragment.newInstance("Tambah Dokter Fragment");
         this.dokterFragment = DokterFragment.newInstance("Dokter Fragment");
         this.leftFragment = LeftFragment.newInstance("Left Fragment");
         this.pertemuanFragment = PertemuanFragment.newInstance("Pertemuan Fragment");
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             if(this.homeFragment.isAdded()){
                 ft.show(homeFragment);
             }else{
-                ft.add(binding.fragmentContainer.getId(),this.homeFragment);
+                ft.add(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null);
             }
             if(this.dokterFragment.isAdded()){
                 ft.hide(this.dokterFragment);
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             if(this.dokterFragment.isAdded()) {
                 ft.show(dokterFragment);
             }else{
-                ft.add(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack("home");
+                ft.add(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack(null);
             }
             if(this.homeFragment.isAdded()){
                 ft.hide(this.homeFragment);
@@ -120,17 +119,28 @@ public class MainActivity extends AppCompatActivity {
             if(this.pertemuanFragment.isAdded()) {
                 ft.show(pertemuanFragment);
             }else{
-                ft.add(binding.fragmentContainer.getId(),this.pertemuanFragment).addToBackStack("home");
+                ft.add(binding.fragmentContainer.getId(),this.pertemuanFragment).addToBackStack(null);
             }
             if(this.homeFragment.isAdded()){
                 ft.hide(this.homeFragment);
             }if(this.dokterFragment.isAdded()) {
                 ft.hide(this.dokterFragment);
             }
+        }else if(page == 4){
+            if(this.tambahDokterFragment.isAdded()) {
+                ft.show(tambahDokterFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.tambahDokterFragment).addToBackStack(null);
+            }
+            if(this.homeFragment.isAdded()){
+                ft.hide(this.homeFragment);
+            }
+            if(this.dokterFragment.isAdded()) {
+                ft.hide(this.dokterFragment);
+            }
         }else{
             closeApplication();
         }
-        System.out.println(fragmentManager.getBackStackEntryCount());
         ft.commit();
         this.drawer.closeDrawers();
     }

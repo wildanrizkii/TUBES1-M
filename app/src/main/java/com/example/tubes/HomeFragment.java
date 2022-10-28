@@ -34,10 +34,8 @@ public class HomeFragment extends Fragment {
 
     private void onClicked(View view) {
         Bundle result = new Bundle();
-        Bundle send = new Bundle();
-        result.putInt("page", 1);
+        result.putInt("page", 3);
         Log.d("debug", "ClickMe Clicked!");
         getParentFragmentManager().setFragmentResult("changePage", result);
-        getParentFragmentManager().setFragmentResult("send", send);
     }
 }
