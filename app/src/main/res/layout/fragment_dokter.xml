@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35sp"
+                android:layout_marginTop="48sp"
+                android:layout_marginBottom="96sp"
+                android:textStyle="bold"
+                android:textSize="28dp"
+                android:text="@string/app_daftardokter"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <ListView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="150sp"
+                >
+
+            </ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="22sp"
+            android:paddingRight="22sp"
+            >
+
+            <Button
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="@string/btn_plus"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:background="@drawable/rounded_corner"
+                >
+
+            </Button>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

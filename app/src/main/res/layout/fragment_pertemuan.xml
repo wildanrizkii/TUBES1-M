@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tubes.MainActivity"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="48sp"
+                android:layout_marginBottom="96sp"
+                android:text="@string/app_buatpertemuan"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="178dp"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="136sp"
+                android:text="@string/nama"
+                android:textSize="18sp"
+
+                >
+
+            </TextView>
+
+            <EditText
+                android:layout_width="158sp"
+                android:layout_height="wrap_content"
+                android:hint="Bernadus Raka"
+                android:textStyle="italic">
+
+            </EditText>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="215dp"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="132sp"
+                android:layout_marginTop="6sp"
+                android:text="@string/dokter"
+                android:textSize="18sp">
+
+            </TextView>
+
+            <Spinner
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:id="@+id/sp_dokter"
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6sp"
+                android:entries="@array/dokter_array">
+
+            </Spinner>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="258dp"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="121sp"
+                android:text="@string/keluhan"
+                android:textSize="18sp"
+
+                >
+
+            </TextView>
+
+            <EditText
+                android:layout_width="158sp"
+                android:layout_height="wrap_content"
+                android:hint="Sesak berak"
+                android:textStyle="italic">
+
+            </EditText>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="298dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="123sp"
+                android:text="@string/tanggal"
+                android:textSize="18sp"
+
+                >
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="108sp"
+                android:layout_height="wrap_content"
+                android:hint="22/10/2022"
+                android:textStyle="italic">
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/iv_date"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="14sp"
+                android:layout_marginTop="3sp"
+                android:src="@android:drawable/ic_menu_my_calendar">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="338dp"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="136sp"
+                android:text="@string/waktu"
+                android:textSize="18sp"
+
+                >
+
+            </TextView>
+
+            <EditText
+                android:layout_width="108sp"
+                android:layout_height="wrap_content"
+                android:hint="10:00AM"
+                android:textStyle="italic">
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/timepicker"
+                android:layout_width="26sp"
+                android:layout_height="26sp"
+                android:layout_marginLeft="18sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="4sp"
+                android:src="@android:drawable/ic_lock_idle_alarm">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="108sp"
+            android:gravity="center"
+            android:paddingBottom="40dp">
+
+            <Button
+                android:id="@+id/btn_pertemuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="160sp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/btn_buat_pertemuan"
+                android:textAllCaps="false"
+                android:textSize="12sp">
+
+            </Button>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TUBES-P3B</string>
+    <string name="app_title">Rumah Sakit Sehat Selalu</string>
+    <string name="app_detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, dolor sed consequat varius, arcu elit imperdiet sem, in ullamcorper est nulla eget ex. Etiam mollis lacus a faucibus posuere. Etiam imperdiet purus at nulla bibendum, et lacinia nisl sagittis. Ut quis velit laoreet, sodales mauris vitae, suscipit purus. Fusce ultricies erat porta mi fringilla tristique.</string>
+    <string name="btn_buat_pertemuan">Buat Pertemuan</string>
+    <string name="app_daftardokter">Daftar Dokter</string>
+    <string name="app_buatpertemuan">Buat Pertemuan</string>
+    <string name="btn_plus">+</string>
+
+    <string name="nama">Nama</string>
+    <string name="dokter">Dokter</string>
+    <string name="keluhan">Keluhan</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="waktu">Waktu</string>
+
+    <string name="home">Home</string>
+    <string name="pertemuan">Pertemuan</string>
+    <string name="exit">Exit</string>
+    <string name="version_app">tubes1-B-1-K v0.1</string>
+    <string-array name="dokter_array">
+        <item>Gigi</item>
+        <item>Kulit</item>
+        <item>Umum</item>
+    </string-array>
+</resources>
