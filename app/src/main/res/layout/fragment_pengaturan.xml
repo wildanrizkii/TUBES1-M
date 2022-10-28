@@ -105,7 +105,7 @@
             android:paddingBottom="40dp">
 
             <Button
-                android:id="@+id/btn_simpan"
+                android:id="@+id/btn_kembali"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="160sp"

@@ -121,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
             }if(this.pertemuanFragment.isAdded()) {
                 ft.hide(this.pertemuanFragment);
             }
+            if(this.pengaturanFragment.isAdded()) {
+                ft.hide(this.pengaturanFragment);
+            }
         }else if(page == 2){
             if(this.dokterFragment.isAdded()) {
                 ft.show(dokterFragment);

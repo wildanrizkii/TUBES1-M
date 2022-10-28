@@ -26,6 +26,14 @@ public class PengaturanFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentPengaturanBinding.inflate(inflater);
+        binding.btnKembali.setOnClickListener(this::onClick);
         return binding.getRoot();
+
+    }
+
+    private void onClick(View view) {
+        Bundle result = new Bundle();
+        result.putInt("page", 1);
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }
