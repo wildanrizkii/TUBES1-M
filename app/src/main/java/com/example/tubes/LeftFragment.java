@@ -25,38 +25,33 @@ public class LeftFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentLeftBinding.inflate(inflater);
-        binding.btnExit.setOnClickListener(this::onClickExit);
-        binding.btnHome.setOnClickListener(this::onClickHome);
-        binding.btnDokter.setOnClickListener(this::onClickDokter);
-        binding.btnPertemuan.setOnClickListener(this::onClickPertemuan);
+        binding.btnExit.setOnClickListener(this::onClickChangePage);
+        binding.btnHome.setOnClickListener(this::onClickChangePage);
+        binding.btnDokter.setOnClickListener(this::onClickChangePage);
+        binding.btnPertemuan.setOnClickListener(this::onClickChangePage);
         return binding.getRoot();
     }
 
-    private void onClickPertemuan(View view) {
-        Log.d("debug", "onClickPertemuan");
-        Bundle result = new Bundle();
-        result.putInt("page", 1);
-        getParentFragmentManager().setFragmentResult("changePage", result);
-    }
-
-    private void onClickDokter(View view) {
-        Log.d("debug", "onClickDokter");
-        Bundle result = new Bundle();
-        result.putInt("page", 4);
-        getParentFragmentManager().setFragmentResult("changePage", result);
-    }
-
-    private void onClickHome(View view) {
-        Log.d("debug", "onClickHome");
-        Bundle result = new Bundle();
-        result.putInt("page", 2);
-        getParentFragmentManager().setFragmentResult("changePage", result);
-    }
-
-    private void onClickExit(View view) {
-        Log.d("debug", "exitApplication");
-        Bundle result = new Bundle();
-        result.putInt("page", 0);
-        getParentFragmentManager().setFragmentResult("changePage", result);
+    private void onClickChangePage(View view){
+        if(view == binding.btnHome){
+            Bundle result = new Bundle();
+            result.putInt("page", 1);
+            getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view == binding.btnDokter){
+            Log.d("debug", "onClickDokter");
+            Bundle result = new Bundle();
+            result.putInt("page", 2);
+            getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view == binding.btnPertemuan){
+            Log.d("debug", "onClickDokter");
+            Bundle result = new Bundle();
+            result.putInt("page", 3);
+            getParentFragmentManager().setFragmentResult("changePage", result);
+        }
+        else{
+            Bundle result = new Bundle();
+            result.putInt("page", 0);
+            getParentFragmentManager().setFragmentResult("changePage", result);
+        }
     }
 }
