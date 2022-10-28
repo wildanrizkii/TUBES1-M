@@ -1,8 +1,11 @@
 package com.example.tubes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -23,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     LeftFragment leftFragment;
     PertemuanFragment pertemuanFragment;
     TambahDokterFragment tambahDokterFragment;
+    LihatDokterFragment lihatDokterFragment;
+    EditDokterFragment editDokterFragment;
+    PengaturanFragment pengaturanFragment;
+
+    private ActivityResultLauncher launcher;
 
     ListView listView;
 
@@ -36,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        this.pengaturanFragment = PengaturanFragment.newInstance("Pengaturan Fragment");
+        this.editDokterFragment = EditDokterFragment.newInstance("Edit Dokter Fragment");
+        this.lihatDokterFragment = LihatDokterFragment.newInstance("Lihat Dokter Fragment");
         this.tambahDokterFragment = TambahDokterFragment.newInstance("Tambah Dokter Fragment");
         this.dokterFragment = DokterFragment.newInstance("Dokter Fragment");
         this.leftFragment = LeftFragment.newInstance("Left Fragment");
@@ -60,8 +71,14 @@ public class MainActivity extends AppCompatActivity {
                         changePage(page);
                     }
                 });
-    }
 
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
+            if (result.getResultCode() == RESULT_OK){
+                Intent intent = result.getData();
+                String message = intent.getStringExtra("message");
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {
@@ -112,8 +129,12 @@ public class MainActivity extends AppCompatActivity {
             }
             if(this.homeFragment.isAdded()){
                 ft.hide(this.homeFragment);
-            }if(this.pertemuanFragment.isAdded()) {
+            }
+            if(this.pertemuanFragment.isAdded()) {
                 ft.hide(this.pertemuanFragment);
+            }
+            if(this.lihatDokterFragment.isAdded()) {
+                ft.hide(this.lihatDokterFragment);
             }
         }else if(page == 3){
             if(this.pertemuanFragment.isAdded()) {
@@ -137,6 +158,39 @@ public class MainActivity extends AppCompatActivity {
             }
             if(this.dokterFragment.isAdded()) {
                 ft.hide(this.dokterFragment);
+            }
+        }else if(page == 5){
+            if(this.lihatDokterFragment.isAdded()) {
+                ft.show(lihatDokterFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.lihatDokterFragment).addToBackStack(null);
+            }
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }
+            if(this.tambahDokterFragment.isAdded()) {
+                ft.hide(this.tambahDokterFragment);
+            }
+        }else if(page == 6){
+            if(this.editDokterFragment.isAdded()) {
+                ft.show(editDokterFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.editDokterFragment).addToBackStack(null);
+            }
+            if(this.lihatDokterFragment.isAdded()){
+                ft.hide(this.lihatDokterFragment);
+            }
+            if(this.dokterFragment.isAdded()) {
+                ft.hide(this.dokterFragment);
+            }
+        }else if(page == 7){
+            if(this.pengaturanFragment.isAdded()) {
+                ft.show(pengaturanFragment);
+            }else{
+                ft.add(binding.fragmentContainer.getId(),this.pengaturanFragment).addToBackStack(null);
+            }
+            if(this.homeFragment.isAdded()){
+                ft.hide(this.homeFragment);
             }
         }else{
             closeApplication();

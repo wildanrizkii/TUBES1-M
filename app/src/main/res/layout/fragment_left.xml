@@ -3,6 +3,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="280dp"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     >
 
@@ -21,7 +22,10 @@
                 android:id="@+id/btn_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/home">
+                android:text="@string/home"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                >
 
             </Button>
 
@@ -30,6 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dokter"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 >
 
             </Button>
@@ -39,6 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pertemuan"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 >
 
             </Button>
@@ -47,7 +55,32 @@
                 android:id="@+id/btn_exit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:text="@string/exit"
+                >
+
+            </Button>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="60dp"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            >
+
+            <Button
+                android:id="@+id/btn_pengaturan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:textAllCaps="false"
+                android:text="@string/app_pengaturan"
                 >
 
             </Button>
@@ -66,7 +99,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/version_app"
                 android:textAlignment="center"
-
                 >
 
             </TextView>

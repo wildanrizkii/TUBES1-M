@@ -5,10 +5,14 @@
     <string name="btn_buat_pertemuan">Buat Pertemuan</string>
     <string name="btn_simpan">Simpan</string>
     <string name="btn_kembali">Kembali</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_batal">Batal</string>
     <string name="app_daftardokter">Daftar Dokter</string>
     <string name="app_tambahdokter">Tambah Dokter</string>
     <string name="app_lihatdokter">Detail</string>
     <string name="app_buatpertemuan">Buat Pertemuan</string>
+    <string name="app_editdokter">Edit</string>
+    <string name="app_pengaturan">Setting</string>
 
     <string name="btn_plus">+</string>
 
@@ -22,10 +26,15 @@
     <string name="home">Home</string>
     <string name="pertemuan">Pertemuan</string>
     <string name="exit">Exit</string>
-    <string name="version_app">tubes1-B-1-K v0.1</string>
+    <string name="version_app">tubes1-B-1-K v1.0</string>
     <string-array name="dokter_array">
         <item>Gigi</item>
         <item>Kulit</item>
         <item>Umum</item>
+    </string-array>
+
+    <string-array name="bahasa_array">
+        <item>Indonesia</item>
+        <item>English</item>
     </string-array>
 </resources>

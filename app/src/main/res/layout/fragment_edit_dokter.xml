@@ -20,7 +20,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="48sp"
                 android:layout_marginBottom="96sp"
-                android:text="@string/app_tambahdokter"
+                android:text="@string/app_editdokter"
                 android:textColor="@color/black"
                 android:textSize="28dp"
                 android:textStyle="bold">
@@ -121,7 +121,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="108sp"
             android:gravity="center"
-            android:paddingBottom="40dp">
+            android:paddingBottom="40dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_simpan"
@@ -130,6 +131,19 @@
                 android:width="160sp"
                 android:background="@drawable/rounded_corner"
                 android:text="@string/btn_simpan"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:layout_marginRight="16dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btn_batal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="160sp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/btn_batal"
                 android:textAllCaps="false"
                 android:textSize="12sp">
 

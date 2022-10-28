@@ -20,7 +20,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="48sp"
                 android:layout_marginBottom="96sp"
-                android:text="@string/app_tambahdokter"
+                android:text="@string/app_pengaturan"
                 android:textColor="@color/black"
                 android:textSize="28dp"
                 android:textStyle="bold">
@@ -28,90 +28,71 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="178dp"
-            android:orientation="horizontal"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="137sp"
-                android:text="@string/nama"
-                android:textSize="18sp"
-                >
-            </TextView>
-
-            <EditText
-                android:layout_width="158sp"
-                android:layout_height="wrap_content"
-                android:hint="Bernadus Raka"
-                android:textStyle="italic">
-
-            </EditText>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:paddingHorizontal="35dp"
             android:layout_marginTop="215dp"
-            android:orientation="horizontal"
-
+            android:orientation="vertical"
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="132sp"
-                android:layout_marginTop="6sp"
-                android:text="@string/dokter"
-                android:textSize="18sp">
+                android:text="Bahasa"
+                >
 
             </TextView>
 
-            <EditText
-                android:layout_width="158sp"
+            <Spinner
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:id="@+id/sp_dokter"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Umum"
-                android:textStyle="italic">
+                android:layout_marginTop="6sp"
+                android:entries="@array/bahasa_array">
 
-            </EditText>
+            </Spinner>
+
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="258dp"
-            android:orientation="horizontal"
-
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:paddingBottom="140dp"
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="128sp"
-                android:text="@string/nomorhp"
-                android:textSize="18sp"
-
+                android:textAlignment="center"
+                android:text="App info"
+                android:layout_marginBottom="10dp"
                 >
 
             </TextView>
 
-            <EditText
-                android:layout_width="158sp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="089646436360"
-                android:textStyle="italic"
-                android:inputType="number"
+                android:textAlignment="center"
+                android:text="Rumah Sakit Sehat Selalu"
+                android:textStyle="bold"
                 >
 
-            </EditText>
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/version_app"
+                >
+
+            </TextView>
 
         </LinearLayout>
 
@@ -129,15 +110,12 @@
                 android:layout_height="wrap_content"
                 android:width="160sp"
                 android:background="@drawable/rounded_corner"
-                android:text="@string/btn_simpan"
+                android:text="@string/btn_kembali"
                 android:textAllCaps="false"
                 android:textSize="12sp">
 
             </Button>
         </LinearLayout>
-
-
-
 
     </RelativeLayout>
 

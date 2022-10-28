@@ -29,6 +29,7 @@ public class LeftFragment extends Fragment {
         binding.btnHome.setOnClickListener(this::onClickChangePage);
         binding.btnDokter.setOnClickListener(this::onClickChangePage);
         binding.btnPertemuan.setOnClickListener(this::onClickChangePage);
+        binding.btnPengaturan.setOnClickListener(this::onClickChangePage);
         return binding.getRoot();
     }
 
@@ -48,7 +49,11 @@ public class LeftFragment extends Fragment {
             result.putInt("page", 3);
             getParentFragmentManager().setFragmentResult("changePage", result);
         }
-        else{
+        else if(view == binding.btnPengaturan){
+            Bundle result = new Bundle();
+            result.putInt("page", 7);
+            getParentFragmentManager().setFragmentResult("changePage", result);
+        } else {
             Bundle result = new Bundle();
             result.putInt("page", 0);
             getParentFragmentManager().setFragmentResult("changePage", result);
