@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         this.leftFragment = LeftFragment.newInstance();
         this.pertemuanFragment = PertemuanFragment.newInstance();
         this.homeFragment = HomeFragment.newInstance();
+
         drawer = binding.drawerLayout;
 
         fragmentManager = getSupportFragmentManager();
