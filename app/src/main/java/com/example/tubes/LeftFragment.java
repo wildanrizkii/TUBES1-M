@@ -51,7 +51,7 @@ public class LeftFragment extends Fragment {
         }
         else if(view == binding.btnPengaturan){
             Bundle result = new Bundle();
-            result.putInt("page", 7);
+            result.putInt("page", 4);
             getParentFragmentManager().setFragmentResult("changePage", result);
         } else {
             Bundle result = new Bundle();

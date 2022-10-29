@@ -105,8 +105,16 @@ public class MainActivity extends AppCompatActivity {
             ft.replace(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if(page == 2){
             ft.replace(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack(null).setReorderingAllowed(true);
-        }else if(page == 3){
-            ft.replace(binding.fragmentContainer.getId(),this.pertemuanFragment).addToBackStack(null).setReorderingAllowed(true);
+        }else if(page == 3) {
+            ft.replace(binding.fragmentContainer.getId(), this.pertemuanFragment).addToBackStack(null).setReorderingAllowed(true);
+        }else if (page == 21) {
+            ft.replace(binding.fragmentContainer.getId(), this.tambahDokterFragment).addToBackStack(null).setReorderingAllowed(true);
+        }else if (page == 22) {
+            ft.replace(binding.fragmentContainer.getId(), this.lihatDokterFragment).addToBackStack(null).setReorderingAllowed(true);
+        }else if (page == 23) {
+            ft.replace(binding.fragmentContainer.getId(), this.editDokterFragment).addToBackStack(null).setReorderingAllowed(true);
+        }else if (page == 4){
+            ft.replace(binding.fragmentContainer.getId(), this.pengaturanFragment).addToBackStack(null).setReorderingAllowed(true);
         }else{
             closeApplication();
         }

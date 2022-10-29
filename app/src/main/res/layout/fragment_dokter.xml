@@ -16,7 +16,6 @@
             >
 
             <TextView
-                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35sp"
@@ -29,16 +28,18 @@
 
             </TextView>
 
-            <ListView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="150sp"
-                >
-
-            </ListView>
-
         </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvDokter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:orientation="vertical"
+            android:paddingVertical="178dp"
+            >
+
+        </ListView>
 
         <LinearLayout
             android:layout_width="wrap_content"

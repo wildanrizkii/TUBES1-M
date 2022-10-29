@@ -16,6 +16,7 @@ public class DokterFragment extends Fragment {
     public DokterFragment(){}
 
     FragmentDokterBinding binding;
+    private Adapter adapter;
 
     public static DokterFragment newInstance(String title) {
         Bundle args = new Bundle();
@@ -29,12 +30,15 @@ public class DokterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDokterBinding.inflate(inflater);
         binding.btnPlus.setOnClickListener(this::onClick);
+        this.adapter = new Adapter(getActivity());
+        binding.lvDokter.setAdapter(adapter);
+
         return binding.getRoot();
     }
 
     private void onClick(View view) {
         Bundle result = new Bundle();
-        result.putInt("page", 4);
+        result.putInt("page", 21);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
