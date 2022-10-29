@@ -1,7 +1,5 @@
 package com.example.tubes;
 
-import static android.content.Intent.ACTION_DIAL;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,6 +38,12 @@ public class LihatDokterFragment extends Fragment {
 
     }
 
+    public void dialPhoneNumber(String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        startActivity(intent);
+    }
+
     private void onClick(View view) {
         if (view == binding.btnKembali){
             Bundle result = new Bundle();
@@ -47,14 +51,12 @@ public class LihatDokterFragment extends Fragment {
             result.putInt("page", 2);
             getParentFragmentManager().setFragmentResult("changePage", result);
         } else if (view == binding.btnHubungi){
-            //Intent DIAL
-            Log.d("debug", "hubungi clicked");
-            Intent intent = new Intent(ACTION_DIAL, Uri.parse("tel:089646436360"));
-            launcher.launch(intent);
+            dialPhoneNumber(binding.tvNohp.getText().toString());
         } else if (view == binding.btnEdit){
             Log.d("debug", "edit clicked");
             Bundle result = new Bundle();
-            result.putInt("page", 6);
+            result.putInt("page", 23);
+            getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }
 

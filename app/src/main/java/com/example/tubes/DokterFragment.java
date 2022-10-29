@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,8 +30,9 @@ public class DokterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDokterBinding.inflate(inflater);
         binding.btnPlus.setOnClickListener(this::onClick);
+        binding.listDokter.setOnItemClickListener(this::onClick);
         this.dokterListAdapter = new DokterListAdapter(getActivity());
-        binding.lstDokter.setAdapter(dokterListAdapter);
+        binding.listDokter.setAdapter(dokterListAdapter);
 
         this.getParentFragmentManager().setFragmentResultListener("itemDokter",
                 this, new FragmentResultListener() {
@@ -56,6 +58,13 @@ public class DokterFragment extends Fragment {
             }
         });
         return binding.getRoot();
+    }
+
+    private void onClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Bundle result = new Bundle();
+        result.putInt("page", 22);
+        Log.d("debug", "ListView Clickeddd!");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
     void add(String nama,String detail,String noTelpon){

@@ -59,12 +59,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:paddingBottom="60dp"
             android:orientation="horizontal"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             >
 
             <Button
@@ -73,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
+                android:drawableLeft="@drawable/setting"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:text="@string/app_pengaturan"
                 >
