@@ -45,6 +45,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etNama"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Bernadus Raka"
@@ -74,6 +75,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etKategori"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Umum"
@@ -104,6 +106,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etNohp"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="089646436360"

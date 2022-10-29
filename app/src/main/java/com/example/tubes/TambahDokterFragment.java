@@ -31,6 +31,11 @@ public class TambahDokterFragment extends Fragment {
 
     private void onClickSimpan(View view) {
         Bundle result = new Bundle();
+        Bundle send = new Bundle();
+
+        send.putString("send", binding.etNama.getText().toString());
+        getParentFragmentManager().setFragmentResult("send", send);
+
         result.putInt("page", 2);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
