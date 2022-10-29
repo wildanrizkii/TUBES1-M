@@ -152,8 +152,10 @@
                 android:id="@+id/etDate"
                 android:layout_width="108sp"
                 android:layout_height="wrap_content"
-                android:hint="22/10/2022"
-                android:textStyle="italic">
+                android:hint="01/01/22"
+                android:text=""
+                android:textStyle="italic"
+                >
 
             </EditText>
 
@@ -191,6 +193,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etTime"
                 android:layout_width="108sp"
                 android:layout_height="wrap_content"
                 android:hint="10:00AM"
