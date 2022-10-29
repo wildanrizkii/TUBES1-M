@@ -19,13 +19,11 @@ import com.example.tubes.databinding.FragmentPertemuanBinding;
 import java.util.Calendar;
 
 public class PertemuanFragment extends Fragment{
-
-    public PertemuanFragment(){}
     FragmentPertemuanBinding binding;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private TimePickerDialog.OnTimeSetListener timeSetListener;
 
-
+    public PertemuanFragment(){     }
     public static PertemuanFragment newInstance() {
         PertemuanFragment pertemuanFragment = new PertemuanFragment();
         return pertemuanFragment;
@@ -67,7 +65,6 @@ public class PertemuanFragment extends Fragment{
                 Calendar calendar = Calendar.getInstance();
                 int hour = calendar.get(Calendar.HOUR_OF_DAY);
                 int minute = calendar.get(Calendar.MINUTE);
-
                 TimePickerDialog dialog = new TimePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, timeSetListener, hour, minute, true);
                 dialog.show();
             }
@@ -91,11 +88,7 @@ public class PertemuanFragment extends Fragment{
                         time = hour + ":" + minute;
                     }
                 }
-
-
-
                 binding.etTime.setText(time);
-
             }
         };
         return binding.getRoot();

@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.openDrawer,R.string.closeDrawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
+
         this.getSupportFragmentManager().setFragmentResultListener(
                 "changePage", this, new FragmentResultListener() {
                     @Override

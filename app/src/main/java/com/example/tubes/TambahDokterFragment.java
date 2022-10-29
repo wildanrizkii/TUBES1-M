@@ -31,10 +31,21 @@ public class TambahDokterFragment extends Fragment {
 
     private void onClickSimpan(View view) {
         Bundle result = new Bundle();
-        Bundle send = new Bundle();
+        Bundle nama = new Bundle();
+        Bundle detail = new Bundle();
+        Bundle noTelpon = new Bundle();
 
-        send.putString("send", binding.etNama.getText().toString());
-        getParentFragmentManager().setFragmentResult("send", send);
+        Bundle all = new Bundle();
+
+        nama.putString("nama", binding.etNama.getText().toString());
+        getParentFragmentManager().setFragmentResult("itemDokter1", nama);
+        detail.putString("detail", binding.etKategori.getText().toString());
+        getParentFragmentManager().setFragmentResult("itemDokter2", detail);
+        noTelpon.putString("noTelpon", binding.etNohp.getText().toString());
+        getParentFragmentManager().setFragmentResult("itemDokter3", noTelpon);
+
+        System.out.println(binding.etNama.getText().toString() + " " +binding.etKategori.getText().toString() + " "+binding.etNohp.getText().toString() );
+
 
         result.putInt("page", 2);
         Log.d("debug", "ClickMe Clickeddd!");
