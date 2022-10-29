@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     DokterFragment dokterFragment;
     LeftFragment leftFragment;
     PertemuanFragment pertemuanFragment;
-
+    FragmentTransaction ft;
     ListView listView;
 
     FragmentManager fragmentManager;
@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(binding.fragmentContainer.getId(), homeFragment)
+        ft = fragmentManager.beginTransaction();
+        ft.add(binding.fragmentContainer.getId(), homeFragment,"Main")
+                .setReorderingAllowed(true)
                 .commit();
         Toolbar toolbar = findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-
+        drawer = binding.drawerLayout;
         this.getSupportFragmentManager().setFragmentResultListener(
                 "changePage", this, new FragmentResultListener() {
                     @Override
@@ -68,69 +68,29 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (drawer.isDrawerOpen((GravityCompat.START))){
             drawer.closeDrawer(GravityCompat.START);
-        } else{
+        }else if (getSupportFragmentManager().getBackStackEntryCount() > 0){
+            getSupportFragmentManager().popBackStack();
+        }else if(isBackPressedOnce){
             super.onBackPressed();
         }
-
-
-        if(pertemuanFragment.isInLayout()){
-            System.out.println(fragmentManager.getBackStackEntryCount());
+        else{
+            Toast.makeText(this,"Press once again to exit!", Toast.LENGTH_SHORT).show();
+            isBackPressedOnce = true;
+            new Handler().postDelayed(() -> isBackPressedOnce = false, 1000);
         }
-//        if (isBackPressedOnce){
-//            super.onBackPressed();
-//            return;
-//        }
-//        Toast.makeText(this,"Press once again to exit!", Toast.LENGTH_SHORT).show();
-//        isBackPressedOnce = true;
-//
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                isBackPressedOnce = false;
-//            }
-//        }, 2000);
-
     }
 
     public void changePage (int page) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
         if(page == 1){
-            if(this.homeFragment.isAdded()){
-                ft.show(homeFragment);
-            }else{
-                ft.add(binding.fragmentContainer.getId(),this.homeFragment);
-            }
-            if(this.dokterFragment.isAdded()){
-                ft.hide(this.dokterFragment);
-            }if(this.pertemuanFragment.isAdded()) {
-                ft.hide(this.pertemuanFragment);
-            }
+            ft.replace(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if(page == 2){
-            if(this.dokterFragment.isAdded()) {
-                ft.show(dokterFragment);
-            }else{
-                ft.add(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack("home");
-            }
-            if(this.homeFragment.isAdded()){
-                ft.hide(this.homeFragment);
-            }if(this.pertemuanFragment.isAdded()) {
-                ft.hide(this.pertemuanFragment);
-            }
+            ft.replace(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if(page == 3){
-            if(this.pertemuanFragment.isAdded()) {
-                ft.show(pertemuanFragment);
-            }else{
-                ft.add(binding.fragmentContainer.getId(),this.pertemuanFragment).addToBackStack("home");
-            }
-            if(this.homeFragment.isAdded()){
-                ft.hide(this.homeFragment);
-            }if(this.dokterFragment.isAdded()) {
-                ft.hide(this.dokterFragment);
-            }
+            ft.replace(binding.fragmentContainer.getId(),this.pertemuanFragment).addToBackStack(null).setReorderingAllowed(true);
         }else{
             closeApplication();
         }
-        System.out.println(fragmentManager.getBackStackEntryCount());
         ft.commit();
         this.drawer.closeDrawers();
     }
