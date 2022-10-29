@@ -55,8 +55,6 @@ public class DokterFragment extends Fragment {
                 System.out.println(nama + " " + detail + " " + noTelpon);
             }
         });
-
-
         return binding.getRoot();
     }
 
