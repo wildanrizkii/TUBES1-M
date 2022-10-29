@@ -159,7 +159,7 @@
 
             </EditText>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_date"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -167,7 +167,7 @@
                 android:layout_marginTop="3sp"
                 android:src="@android:drawable/ic_menu_my_calendar">
 
-            </ImageView>
+            </ImageButton>
 
 
         </LinearLayout>
