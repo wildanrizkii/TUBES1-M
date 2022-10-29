@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
         else{
-            Toast.makeText(this,"Press once again to exit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show();
             isBackPressedOnce = true;
             new Handler().postDelayed(() -> isBackPressedOnce = false, 1000);
         }
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public void changePage (int page) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
         if(page == 1){
-            ft.replace(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null).setReorderingAllowed(true);
+            ft.replace(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null);
         }else if(page == 2){
             ft.replace(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if(page == 3) {

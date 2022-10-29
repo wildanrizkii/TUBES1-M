@@ -92,8 +92,6 @@ public class PertemuanFragment extends Fragment{
                     }
                 }
 
-
-
                 binding.etTime.setText(time);
 
             }
