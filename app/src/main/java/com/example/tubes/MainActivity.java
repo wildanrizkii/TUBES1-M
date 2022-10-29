@@ -1,6 +1,5 @@
 package com.example.tubes;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(this,"Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show();
             isBackPressedOnce = true;
-            new Handler().postDelayed(() -> isBackPressedOnce = false, 1000);
+            new Handler().postDelayed(() -> isBackPressedOnce = false, 2000);
         }
     }
 
