@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
         else{
-            Toast.makeText(this,"Press once again to exit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show();
             isBackPressedOnce = true;
             new Handler().postDelayed(() -> isBackPressedOnce = false, 1000);
         }
