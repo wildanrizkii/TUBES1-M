@@ -25,11 +25,8 @@ public class PertemuanFragment extends Fragment implements DatePickerDialog.OnDa
     DatePickerFragment datePickerFragment;
 
 
-    public static PertemuanFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static PertemuanFragment newInstance() {
         PertemuanFragment pertemuanFragment = new PertemuanFragment();
-        args.putString("title", title);
-        pertemuanFragment.setArguments(args);
         return pertemuanFragment;
     }
 

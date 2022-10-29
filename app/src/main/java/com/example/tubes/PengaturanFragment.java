@@ -12,13 +12,11 @@ import androidx.fragment.app.Fragment;
 import com.example.tubes.databinding.FragmentPengaturanBinding;
 
 public class PengaturanFragment extends Fragment {
-    public PengaturanFragment(){}
     FragmentPengaturanBinding binding;
+    public PengaturanFragment(){}
 
-    public static PengaturanFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static PengaturanFragment newInstance() {
         PengaturanFragment fragment = new PengaturanFragment();
-        args.putString("title", title);
         return fragment;
     }
 

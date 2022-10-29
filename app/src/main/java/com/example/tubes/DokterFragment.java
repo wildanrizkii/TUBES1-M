@@ -18,10 +18,8 @@ public class DokterFragment extends Fragment {
     FragmentDokterBinding binding;
     private Adapter adapter;
 
-    public static DokterFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static DokterFragment newInstance() {
         DokterFragment dokterFragment = new DokterFragment();
-        args.putString("title", title);
         return dokterFragment;
     }
 

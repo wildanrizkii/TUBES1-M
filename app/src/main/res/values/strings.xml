@@ -13,7 +13,8 @@
     <string name="app_buatpertemuan">Buat Pertemuan</string>
     <string name="app_editdokter">Edit</string>
     <string name="app_pengaturan">Setting</string>
-
+    <string name="openDrawer">Open</string>
+    <string name="closeDrawer">Close</string>
     <string name="btn_plus">+</string>
 
     <string name="nama">Nama</string>

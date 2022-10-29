@@ -16,7 +16,7 @@ public class LeftFragment extends Fragment {
     FragmentLeftBinding binding;
 
     public LeftFragment(){  }
-    public static LeftFragment newInstance(String title) {
+    public static LeftFragment newInstance() {
         LeftFragment fragment = new LeftFragment();
         return fragment;
     }

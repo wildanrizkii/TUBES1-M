@@ -16,10 +16,8 @@ public class TambahDokterFragment extends Fragment {
     public TambahDokterFragment(){}
     FragmentTambahDokterBinding binding;
 
-    public static TambahDokterFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static TambahDokterFragment newInstance() {
         TambahDokterFragment fragment = new TambahDokterFragment();
-        args.putString("title", title);
         return fragment;
     }
 

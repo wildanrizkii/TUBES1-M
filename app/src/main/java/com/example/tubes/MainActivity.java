@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -46,14 +47,15 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        this.pengaturanFragment = PengaturanFragment.newInstance("Pengaturan Fragment");
-        this.editDokterFragment = EditDokterFragment.newInstance("Edit Dokter Fragment");
-        this.lihatDokterFragment = LihatDokterFragment.newInstance("Lihat Dokter Fragment");
-        this.tambahDokterFragment = TambahDokterFragment.newInstance("Tambah Dokter Fragment");
-        this.dokterFragment = DokterFragment.newInstance("Dokter Fragment");
-        this.leftFragment = LeftFragment.newInstance("Left Fragment");
-        this.pertemuanFragment = PertemuanFragment.newInstance("Pertemuan Fragment");
-        this.homeFragment = HomeFragment.newInstance("Home Fragment");
+        this.pengaturanFragment = PengaturanFragment.newInstance();
+        this.editDokterFragment = EditDokterFragment.newInstance();
+        this.lihatDokterFragment = LihatDokterFragment.newInstance();
+        this.tambahDokterFragment = TambahDokterFragment.newInstance();
+        this.dokterFragment = DokterFragment.newInstance();
+        this.leftFragment = LeftFragment.newInstance();
+        this.pertemuanFragment = PertemuanFragment.newInstance();
+        this.homeFragment = HomeFragment.newInstance();
+        drawer = binding.drawerLayout;
 
         fragmentManager = getSupportFragmentManager();
 
@@ -63,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
         Toolbar toolbar = findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
-
-        drawer = binding.drawerLayout;
+        ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.openDrawer,R.string.closeDrawer);
+        drawer.addDrawerListener(abdt);
+        abdt.syncState();
         this.getSupportFragmentManager().setFragmentResultListener(
                 "changePage", this, new FragmentResultListener() {
                     @Override

@@ -24,10 +24,8 @@ public class LihatDokterFragment extends Fragment {
     FragmentLihatDokterBinding binding;
     private ActivityResultLauncher launcher;
 
-    public static LihatDokterFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static LihatDokterFragment newInstance() {
         LihatDokterFragment fragment = new LihatDokterFragment();
-        args.putString("title", title);
         return fragment;
     }
 

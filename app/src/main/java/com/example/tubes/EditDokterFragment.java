@@ -16,10 +16,8 @@ public class EditDokterFragment extends Fragment {
 
     public EditDokterFragment(){}
 
-    public static EditDokterFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static EditDokterFragment newInstance() {
         EditDokterFragment fragment = new EditDokterFragment();
-        args.putString("title", title);
         return fragment;
     }
 

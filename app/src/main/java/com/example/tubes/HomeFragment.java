@@ -16,11 +16,8 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
     public HomeFragment(){}
 
-    public static HomeFragment newInstance(String title) {
-        Bundle args = new Bundle();
+    public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
-        args.putString("title", title);
-        fragment.setArguments(args);
         return fragment;
     }
 
