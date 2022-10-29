@@ -28,9 +28,9 @@
     <string name="exit">Exit</string>
     <string name="version_app">tubes1-B-1-K v1.0</string>
     <string-array name="dokter_array">
-        <item>Gigi</item>
-        <item>Kulit</item>
-        <item>Umum</item>
+        <item>Dr. Bernadus Raka</item>
+        <item>Dr. Stepanus Inggrid</item>
+        <item>Dr. Stranger</item>
     </string-array>
 
     <string-array name="bahasa_array">

@@ -32,8 +32,8 @@ public class DokterFragment extends Fragment {
         binding.btnPlus.setOnClickListener(this::onClick);
         this.adapter = new Adapter(getActivity());
         binding.lvDokter.setAdapter(adapter);
-
         return binding.getRoot();
+
     }
 
     private void onClick(View view) {
