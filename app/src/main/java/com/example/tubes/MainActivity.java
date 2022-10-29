@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        ft = fragmentManager.beginTransaction();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.add(binding.fragmentContainer.getId(), homeFragment,"Main")
                 .setReorderingAllowed(true)
                 .commit();
