@@ -50,7 +50,7 @@ public class PertemuanFragment extends Fragment implements DatePickerDialog.OnDa
 
     private void onClicked(View view) {
         Bundle result = new Bundle();
-        result.putInt("page", 2);
+        result.putInt("page", 1);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
     }

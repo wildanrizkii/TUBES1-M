@@ -10,29 +10,28 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.tubes.databinding.FragmentDokterBinding;
+import com.example.tubes.databinding.FragmentTambahDokterBinding;
 
-public class DokterFragment extends Fragment {
-    public DokterFragment(){}
+public class TambahDokterFragment extends Fragment {
+    public TambahDokterFragment(){}
+    FragmentTambahDokterBinding binding;
 
-    FragmentDokterBinding binding;
-
-    public static DokterFragment newInstance(String title) {
+    public static TambahDokterFragment newInstance(String title) {
         Bundle args = new Bundle();
-        DokterFragment dokterFragment = new DokterFragment();
+        TambahDokterFragment fragment = new TambahDokterFragment();
         args.putString("title", title);
-        return dokterFragment;
+        return fragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentDokterBinding.inflate(inflater);
-        binding.btnPlus.setOnClickListener(this::onClick);
+        binding = FragmentTambahDokterBinding.inflate(inflater);
+        binding.btnSimpan.setOnClickListener(this::onClickSimpan);
         return binding.getRoot();
     }
 
-    private void onClick(View view) {
+    private void onClickSimpan(View view) {
         Bundle result = new Bundle();
         result.putInt("page", 4);
         Log.d("debug", "ClickMe Clickeddd!");

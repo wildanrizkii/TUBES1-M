@@ -1,10 +1,13 @@
 package com.example.tubes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,7 +27,13 @@ public class MainActivity extends AppCompatActivity {
     DokterFragment dokterFragment;
     LeftFragment leftFragment;
     PertemuanFragment pertemuanFragment;
-    FragmentTransaction ft;
+    TambahDokterFragment tambahDokterFragment;
+    LihatDokterFragment lihatDokterFragment;
+    EditDokterFragment editDokterFragment;
+    PengaturanFragment pengaturanFragment;
+
+    private ActivityResultLauncher launcher;
+
     ListView listView;
 
     FragmentManager fragmentManager;
@@ -37,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        this.pengaturanFragment = PengaturanFragment.newInstance("Pengaturan Fragment");
+        this.editDokterFragment = EditDokterFragment.newInstance("Edit Dokter Fragment");
+        this.lihatDokterFragment = LihatDokterFragment.newInstance("Lihat Dokter Fragment");
+        this.tambahDokterFragment = TambahDokterFragment.newInstance("Tambah Dokter Fragment");
         this.dokterFragment = DokterFragment.newInstance("Dokter Fragment");
         this.leftFragment = LeftFragment.newInstance("Left Fragment");
         this.pertemuanFragment = PertemuanFragment.newInstance("Pertemuan Fragment");
@@ -61,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
                         changePage(page);
                     }
                 });
+
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
+            if (result.getResultCode() == RESULT_OK){
+                Intent intent = result.getData();
+                String message = intent.getStringExtra("message");
+            }
+        });
     }
 
 
