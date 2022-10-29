@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public void changePage (int page) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
         if(page == 1){
-            ft.replace(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null);
+            ft.replace(binding.fragmentContainer.getId(),this.homeFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if(page == 2){
             ft.replace(binding.fragmentContainer.getId(),this.dokterFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if(page == 3) {
