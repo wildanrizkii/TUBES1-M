@@ -18,7 +18,7 @@ public class DokterFragment extends Fragment {
     FragmentDokterBinding binding;
     private DokterListAdapter dokterListAdapter;
 
-    public DokterFragment(){    }
+    public DokterFragment(){}
 
     public static DokterFragment newInstance() {
         DokterFragment dokterFragment = new DokterFragment();
@@ -40,9 +40,9 @@ public class DokterFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String nama = result.getString("nama");
                 String detail = result.getString("detail");
-                String noTelpon = result.getString("noTelpon");
-                add(nama,detail,noTelpon);
-                System.out.println(nama + " " + detail + " " + noTelpon);
+
+                add(nama,detail);
+                System.out.println(nama + " " + detail);
             }
         });
 
@@ -52,9 +52,8 @@ public class DokterFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String nama = result.getString("nama");
                 String detail = result.getString("detail");
-                String noTelpon = result.getString("noTelpon");
-                add(nama,detail,noTelpon);
-                System.out.println(nama + " " + detail + " " + noTelpon);
+                add(nama,detail);
+                System.out.println(nama + " " + detail);
             }
         });
         return binding.getRoot();
@@ -67,8 +66,8 @@ public class DokterFragment extends Fragment {
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
-    void add(String nama,String detail,String noTelpon){
-        Dokter dokter = new Dokter(nama,detail,noTelpon);
+    void add(String nama,String detail){
+        Dokter dokter = new Dokter(nama, detail);
         dokterListAdapter.add(dokter);
     }
     private void onClick(View view) {
