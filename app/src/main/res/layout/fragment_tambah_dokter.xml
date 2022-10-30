@@ -48,6 +48,8 @@
                 android:id="@+id/etNama"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="text"
                 android:hint="Bernadus Raka"
                 android:textStyle="italic">
 
@@ -78,6 +80,8 @@
                 android:id="@+id/etKategori"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="text"
                 android:hint="Umum"
                 android:textStyle="italic">
 
@@ -110,6 +114,7 @@
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="089646436360"
+                android:maxLines="1"
                 android:textStyle="italic"
                 android:inputType="number"
                 >
@@ -138,10 +143,6 @@
 
             </Button>
         </LinearLayout>
-
-
-
-
     </RelativeLayout>
 
 </FrameLayout>
