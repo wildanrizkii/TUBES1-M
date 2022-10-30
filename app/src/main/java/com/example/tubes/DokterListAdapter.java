@@ -1,16 +1,14 @@
 package com.example.tubes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import com.example.tubes.databinding.ListDokterBinding;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class DokterListAdapter extends BaseAdapter {
     private Context context;
@@ -54,30 +52,23 @@ public class DokterListAdapter extends BaseAdapter {
                     .inflate(R.layout.list_dokter, viewGroup, false);
         }
 
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(itemView);
         Dokter dokter = (Dokter) getItem(i);
+        System.out.println(dokter.getNama());
 
         viewHolder.bind(dokter);
-        return itemView;
+        return binding.getRoot();
     }
 
     private class ViewHolder{
-        private TextView tvnama,tvdetail,tvnotelpon;
 
         ViewHolder(View view){
-            tvnama = view.findViewById(R.id.tv_namadokter);
-            tvdetail = view.findViewById(R.id.tv_detail);
-            tvnotelpon = view.findViewById(R.id.tv_nohp);
+
         }
 
         void bind(Dokter dokter){
-            tvnama.setText(dokter.getNama());
-            tvdetail.setText(dokter.getDetail());
-            tvnotelpon.setText(dokter.getNoTelpon());
+            binding.tvNamadokter.setText(dokter.getNama());
+            binding.tvDetail.setText(dokter.getDetail());
         }
     }
-
-
-
-
 }

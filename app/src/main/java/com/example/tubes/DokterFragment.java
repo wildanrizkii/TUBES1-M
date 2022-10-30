@@ -5,12 +5,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 
 import com.example.tubes.databinding.FragmentDokterBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -39,11 +39,9 @@ public class DokterFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDokterBinding.inflate(inflater);
-
-
-        dbDokter = FirebaseDatabase.getInstance().getReference("dokter");
-
+        dbDokter = FirebaseDatabase.getInstance().getReference(Dokter.class.getSimpleName());
         binding.btnPlus.setOnClickListener(this::onClick);
+        binding.listDokter.setOnItemClickListener(this::onClickList);
         dokters = new ArrayList<>();
 //        this.getParentFragmentManager().setFragmentResultListener("itemDokter",
 //                this, new FragmentResultListener() {
@@ -71,13 +69,19 @@ public class DokterFragment extends Fragment {
         return binding.getRoot();
     }
 
-    void add(String nama,String detail,String noTelpon){
+    private void onClickList(AdapterView<?> adapterView, View view, int i, long l) {
+        Bundle result = new Bundle();
+        result.putInt("page", 22);
+        Log.d("debug", "ClickMe Clickeddd!");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
+
     private void onClick(View view) {
         Bundle result = new Bundle();
         result.putInt("page", 21);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
+
     }
 
     @Override

@@ -29,28 +29,20 @@ public class TambahDokterFragment extends Fragment {
         return fragment;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentTambahDokterBinding.inflate(inflater);
         binding.btnSimpan.setOnClickListener(this::onClicksave);
-        System.out.println("im Here2");
         mDatabase = FirebaseDatabase.getInstance().getReference();
         dokter = new Dokter();
         return binding.getRoot();
     }
 
     private void onClicksave(View view) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        System.out.println(myRef + " ini dokter");
-
-        myRef.push().setValue("Hello, World!");
         if(view == binding.btnSimpan){
             saveDokter();
         }
-
     }
 
     private void saveDokter(){
@@ -88,9 +80,8 @@ public class TambahDokterFragment extends Fragment {
             dokter.setDetail(detail);
             dokter.setNoTelpon(noHp);
 
-            dbDokter.child(id);
+            dbDokter.child(id).setValue(dokter);
             System.out.println(dbDokter.child(id));
-
 
             Bundle result = new Bundle();
             result.putInt("page", 2);
@@ -101,7 +92,6 @@ public class TambahDokterFragment extends Fragment {
         }
 
     }
-
 
     private void onClickSimpan(View view) {
         Bundle result = new Bundle();
