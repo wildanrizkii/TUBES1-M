@@ -106,18 +106,13 @@ public class TambahDokterFragment extends Fragment {
         Bundle result = new Bundle();
         Bundle nama = new Bundle();
         Bundle detail = new Bundle();
-        Bundle noTelpon = new Bundle();
-
-        Bundle all = new Bundle();
 
         nama.putString("nama", binding.etNama.getText().toString());
         getParentFragmentManager().setFragmentResult("itemDokter1", nama);
         detail.putString("detail", binding.etKategori.getText().toString());
         getParentFragmentManager().setFragmentResult("itemDokter2", detail);
-        noTelpon.putString("noTelpon", binding.etNohp.getText().toString());
-        getParentFragmentManager().setFragmentResult("itemDokter3", noTelpon);
 
-        System.out.println(binding.etNama.getText().toString() + " " +binding.etKategori.getText().toString() + " "+binding.etNohp.getText().toString() );
+        System.out.println(binding.etNama.getText().toString() + " " +binding.etKategori.getText().toString());
 
 
         result.putInt("page", 2);

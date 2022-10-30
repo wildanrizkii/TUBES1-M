@@ -94,7 +94,7 @@ public class DokterFragment extends Fragment {
                 }
                 DokterListAdapter adapter = new DokterListAdapter(getActivity());
                 adapter.setDokterslist(dokters);
-                binding.lstDokter.setAdapter(adapter);
+                binding.listDokter.setAdapter(adapter);
             }
 
             @Override
