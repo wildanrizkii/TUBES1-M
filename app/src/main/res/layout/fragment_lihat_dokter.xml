@@ -138,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hubungi"
-                        android:layout_marginLeft="104dp"
+                        android:layout_marginLeft="100dp"
                         android:textColor="@color/primary_red"
                         android:layout_marginTop="9sp"
                         android:textSize="16sp"
