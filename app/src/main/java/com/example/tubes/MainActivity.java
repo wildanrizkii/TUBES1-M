@@ -20,6 +20,8 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tubes.databinding.ActivityMainBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.openDrawer,R.string.closeDrawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference usersRef = ref.child("shop").child("Users");
+        String userId = usersRef.push().getKey();
+        usersRef.child(userId).setValue(true);
+
+        System.out.println(usersRef);
 
         this.getSupportFragmentManager().setFragmentResultListener(
                 "changePage", this, new FragmentResultListener() {
@@ -124,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         }
         ft.commit();
         this.drawer.closeDrawers();
+
     }
 
     public void closeApplication(){

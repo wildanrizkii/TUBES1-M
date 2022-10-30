@@ -10,6 +10,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_namadokter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama Dokter"
@@ -18,6 +19,7 @@
         </TextView>
 
         <TextView
+            android:id="@+id/tv_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Detail Dokter"
@@ -26,6 +28,7 @@
         </TextView>
 
         <TextView
+            android:id="@+id/tv_nohp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="No telpon">
