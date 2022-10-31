@@ -21,7 +21,6 @@ public class TambahDokterFragment extends Fragment {
     DatabaseReference dokterDB;
     private Dokter dokter;
 
-
     public TambahDokterFragment(){}
 
     public static TambahDokterFragment newInstance() {
@@ -84,6 +83,12 @@ public class TambahDokterFragment extends Fragment {
             Log.d("debug", "ClickMe Clickeddd!");
             getParentFragmentManager().setFragmentResult("changePage", result);
 
+        }
+
+        if (!binding.etNama.getText().toString().equals(null)){
+            binding.etNama.getText().clear();
+            binding.etKategori.getText().clear();
+            binding.etNohp.getText().clear();
         }
 
     }
