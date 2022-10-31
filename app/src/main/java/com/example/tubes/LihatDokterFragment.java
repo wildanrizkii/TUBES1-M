@@ -12,15 +12,17 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.example.tubes.databinding.FragmentLihatDokterBinding;
 
 public class LihatDokterFragment extends Fragment {
+    FragmentLihatDokterBinding binding;
+    Dokter dokter;
+    private ActivityResultLauncher launcher;
 
     public LihatDokterFragment(){}
 
-    FragmentLihatDokterBinding binding;
-    private ActivityResultLauncher launcher;
 
     public static LihatDokterFragment newInstance() {
         LihatDokterFragment fragment = new LihatDokterFragment();
@@ -34,8 +36,24 @@ public class LihatDokterFragment extends Fragment {
         binding.btnKembali.setOnClickListener(this::onClick);
         binding.btnHubungi.setOnClickListener(this::onClick);
         binding.btnEdit.setOnClickListener(this::onClick);
+
+        System.out.println("cek1");
+        this.getParentFragmentManager().setFragmentResultListener("dataDokter", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                dokter = result.getParcelable("Dokter");
+                setData(dokter);
+            }
+        });
+
         return binding.getRoot();
 
+    }
+
+    void setData(Dokter dokter){
+        binding.tvNamadokter.setText(dokter.getNama());
+        binding.tvKategoridokter.setText(dokter.getDetail());
+        binding.tvNohp.setText(dokter.getNoTelpon());
     }
 
     public void dialPhoneNumber(String phoneNumber) {
@@ -53,9 +71,12 @@ public class LihatDokterFragment extends Fragment {
         } else if (view == binding.btnHubungi){
             dialPhoneNumber(binding.tvNohp.getText().toString());
         } else if (view == binding.btnEdit){
+            Bundle dokter = new Bundle();
+            dokter.putParcelable("Dokter",this.dokter);
             Log.d("debug", "edit clicked");
             Bundle result = new Bundle();
             result.putInt("page", 23);
+            getParentFragmentManager().setFragmentResult("dataDokter",dokter);
             getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }

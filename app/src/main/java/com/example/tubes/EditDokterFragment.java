@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.example.tubes.databinding.FragmentEditDokterBinding;
 
 public class EditDokterFragment extends Fragment {
     FragmentEditDokterBinding binding;
-
+    Dokter dokter;
     public EditDokterFragment(){}
 
     public static EditDokterFragment newInstance() {
@@ -27,6 +28,16 @@ public class EditDokterFragment extends Fragment {
         binding = FragmentEditDokterBinding.inflate(inflater);
         binding.btnSimpan.setOnClickListener(this::onClick);
         binding.btnBatal.setOnClickListener(this::onClick);
+
+
+        this.getParentFragmentManager().setFragmentResultListener("dataDokter", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                dokter = result.getParcelable("Dokter");
+                System.out.println(dokter.getNama() + " here");
+
+            }
+        });
         return binding.getRoot();
     }
 

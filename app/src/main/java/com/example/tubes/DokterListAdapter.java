@@ -54,7 +54,6 @@ public class DokterListAdapter extends BaseAdapter {
 
         ViewHolder viewHolder = new ViewHolder(itemView);
         Dokter dokter = (Dokter) getItem(i);
-        System.out.println(dokter.getNama());
 
         viewHolder.bind(dokter);
         return binding.getRoot();

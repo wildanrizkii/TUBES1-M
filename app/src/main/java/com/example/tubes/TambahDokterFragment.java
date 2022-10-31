@@ -69,9 +69,6 @@ public class TambahDokterFragment extends Fragment {
             Toast.makeText(getContext(),"Savind Data...",Toast.LENGTH_SHORT).show();
 
             DatabaseReference dbDokter = mDatabase.child(Dokter.class.getSimpleName());
-            System.out.println(nama);
-            System.out.println(detail);
-            System.out.println(noHp);
 
             String id = dbDokter.push().getKey();
             System.out.println(dbDokter + " ini dokter");
@@ -87,7 +84,6 @@ public class TambahDokterFragment extends Fragment {
             result.putInt("page", 2);
             Log.d("debug", "ClickMe Clickeddd!");
             getParentFragmentManager().setFragmentResult("changePage", result);
-
 
         }
 

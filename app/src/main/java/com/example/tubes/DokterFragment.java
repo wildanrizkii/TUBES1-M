@@ -70,8 +70,12 @@ public class DokterFragment extends Fragment {
     }
 
     private void onClickList(AdapterView<?> adapterView, View view, int i, long l) {
+
+        Bundle rs = new Bundle();
         Bundle result = new Bundle();
         result.putInt("page", 22);
+        rs.putParcelable("Dokter",dokters.get(i));
+        getParentFragmentManager().setFragmentResult("dataDokter",rs);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
