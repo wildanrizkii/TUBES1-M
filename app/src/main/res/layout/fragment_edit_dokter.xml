@@ -48,6 +48,8 @@
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Bernadus Raka"
+                android:maxLines="1"
+                android:inputType="text"
                 android:textStyle="italic">
 
             </EditText>
@@ -78,6 +80,8 @@
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Umum"
+                android:maxLines="1"
+                android:inputType="text"
                 android:textStyle="italic">
 
             </EditText>
@@ -109,6 +113,7 @@
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="089646436360"
+                android:maxLines="1"
                 android:textStyle="italic"
                 android:inputType="number"
                 >

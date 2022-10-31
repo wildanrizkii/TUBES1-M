@@ -1,7 +1,6 @@
 package com.example.tubes;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,10 +61,10 @@ public class EditDokterFragment extends Fragment {
             this.dokter.setNoTelpon(binding.etNoTelpon.getText().toString());
 
             dokter.child(dokterId).setValue(this.dokter);
-            result.putInt("page", 22);
+            result.putInt("page", 2);
             getParentFragmentManager().setFragmentResult("changePage", result);
         } else if (view == binding.btnBatal){
-            result.putInt("page", 22);
+            result.putInt("page", 2);
             getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }
