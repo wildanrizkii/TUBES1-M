@@ -55,6 +55,7 @@ public class Dokter implements Parcelable {
         dest.writeString(this.detail);
         dest.writeString(this.noTelpon);
     }
+
     public static final Parcelable.Creator<Dokter> CREATOR = new Parcelable.Creator<Dokter>() {
         @Override
         public Dokter createFromParcel(Parcel in) {

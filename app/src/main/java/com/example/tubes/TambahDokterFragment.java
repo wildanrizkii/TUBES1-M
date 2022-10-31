@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class TambahDokterFragment extends Fragment {
     FragmentTambahDokterBinding binding;
-    DatabaseReference mDatabase;
+    DatabaseReference dokterDB;
     private Dokter dokter;
 
 
@@ -34,7 +34,7 @@ public class TambahDokterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentTambahDokterBinding.inflate(inflater);
         binding.btnSimpan.setOnClickListener(this::onClicksave);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        dokterDB = FirebaseDatabase.getInstance().getReference();
         dokter = new Dokter();
         return binding.getRoot();
     }
@@ -68,10 +68,9 @@ public class TambahDokterFragment extends Fragment {
         if(!isEmptyField){
             Toast.makeText(getContext(),"Savind Data...",Toast.LENGTH_SHORT).show();
 
-            DatabaseReference dbDokter = mDatabase.child(Dokter.class.getSimpleName());
+            DatabaseReference dbDokter = dokterDB.child(Dokter.class.getSimpleName());
 
             String id = dbDokter.push().getKey();
-            System.out.println(dbDokter + " ini dokter");
             dokter.setId(id);
             dokter.setNama(nama);
             dokter.setDetail(detail);

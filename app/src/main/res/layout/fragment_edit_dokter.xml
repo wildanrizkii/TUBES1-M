@@ -14,7 +14,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
@@ -45,6 +44,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/et_nama"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Bernadus Raka"
@@ -74,6 +74,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/et_detail"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Umum"
@@ -104,6 +105,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/et_noTelpon"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="089646436360"

@@ -76,7 +76,7 @@ public class LihatDokterFragment extends Fragment {
             Log.d("debug", "edit clicked");
             Bundle result = new Bundle();
             result.putInt("page", 23);
-            getParentFragmentManager().setFragmentResult("dataDokter",dokter);
+            getParentFragmentManager().setFragmentResult("editDokter",dokter);
             getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }
