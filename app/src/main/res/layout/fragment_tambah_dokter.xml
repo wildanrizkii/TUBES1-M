@@ -139,6 +139,19 @@
                 android:background="@drawable/rounded_corner"
                 android:text="@string/btn_simpan"
                 android:textAllCaps="false"
+                android:layout_marginRight="16dp"
+                android:textSize="12sp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btn_batal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="160sp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/btn_batal"
+                android:textAllCaps="false"
                 android:textSize="12sp">
 
             </Button>

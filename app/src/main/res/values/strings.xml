@@ -16,6 +16,8 @@
     <string name="openDrawer">Open</string>
     <string name="closeDrawer">Close</string>
     <string name="btn_plus">+</string>
+    <string name="btn_delete">Hapus</string>
+
 
     <string name="nama">Nama</string>
     <string name="dokter">Dokter</string>

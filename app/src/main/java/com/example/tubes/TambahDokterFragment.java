@@ -33,15 +33,29 @@ public class TambahDokterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentTambahDokterBinding.inflate(inflater);
         binding.btnSimpan.setOnClickListener(this::onClicksave);
+        binding.btnBatal.setOnClickListener(this::onClickbatal);
         dokterDB = FirebaseDatabase.getInstance().getReference();
         dokter = new Dokter();
         return binding.getRoot();
     }
 
+
+
     private void onClicksave(View view) {
         if(view == binding.btnSimpan){
             saveDokter();
+            if (!binding.etNama.getText().toString().equals(null)){
+                binding.etNama.getText().clear();
+                binding.etKategori.getText().clear();
+                binding.etNohp.getText().clear();
+            }
         }
+    }
+
+    private void onClickbatal(View view) {
+        Bundle result = new Bundle();
+        result.putInt("page", 2);
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
     private void saveDokter(){
@@ -57,11 +71,11 @@ public class TambahDokterFragment extends Fragment {
         }
         if(TextUtils.isEmpty(detail)){
             isEmptyField = true;
-            binding.etNama.setError("Field ini tidak boleh kosong");
+            binding.etKategori.setError("Field ini tidak boleh kosong");
         }
         if(TextUtils.isEmpty(noHp)){
             isEmptyField = true;
-            binding.etNama.setError("Field ini tidak boleh kosong");
+            binding.etNohp.setError("Field ini tidak boleh kosong");
         }
 
         if(!isEmptyField){
@@ -85,11 +99,6 @@ public class TambahDokterFragment extends Fragment {
 
         }
 
-        if (!binding.etNama.getText().toString().equals(null)){
-            binding.etNama.getText().clear();
-            binding.etKategori.getText().clear();
-            binding.etNohp.getText().clear();
-        }
 
     }
 
