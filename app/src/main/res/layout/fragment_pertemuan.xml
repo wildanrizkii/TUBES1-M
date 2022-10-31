@@ -10,7 +10,6 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         >
 
         <LinearLayout
@@ -56,6 +55,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etNama"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Bernadus Raka"
@@ -88,12 +88,12 @@
             </TextView>
 
             <Spinner
-                style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:id="@+id/sp_dokter"
                 android:layout_width="158dp"
                 android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_marginTop="6sp"
-                android:entries="@array/dokter_array">
+                >
 
             </Spinner>
 
@@ -115,12 +115,12 @@
                 android:layout_marginRight="121sp"
                 android:text="@string/keluhan"
                 android:textSize="18sp"
-
                 >
 
             </TextView>
 
             <EditText
+                android:id="@+id/etKeluhan"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
                 android:hint="Sesak berak"
@@ -129,7 +129,6 @@
                 android:textStyle="italic">
 
             </EditText>
-
 
         </LinearLayout>
 
@@ -182,7 +181,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="338dp"
             android:orientation="horizontal"
-
             >
 
             <TextView
@@ -191,7 +189,6 @@
                 android:layout_marginRight="136sp"
                 android:text="@string/waktu"
                 android:textSize="18sp"
-
                 >
 
             </TextView>
@@ -216,9 +213,7 @@
 
             </ImageView>
 
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -241,7 +236,6 @@
             </Button>
 
         </LinearLayout>
-
 
     </RelativeLayout>
 

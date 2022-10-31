@@ -3,27 +3,41 @@ package com.example.tubes;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes.databinding.FragmentPertemuanBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class PertemuanFragment extends Fragment{
     FragmentPertemuanBinding binding;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private TimePickerDialog.OnTimeSetListener timeSetListener;
+    DatabaseReference jadwalDB;
+    private Jadwal jadwal;
+    List<String> dokterNames;
 
-    public PertemuanFragment(){     }
+    public PertemuanFragment(){}
+
     public static PertemuanFragment newInstance() {
         PertemuanFragment pertemuanFragment = new PertemuanFragment();
         return pertemuanFragment;
@@ -33,8 +47,10 @@ public class PertemuanFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentPertemuanBinding.inflate(inflater);
-        binding.btnPertemuan.setOnClickListener(this::onClicked);
-
+        binding.btnPertemuan.setOnClickListener(this::onClickBuatPertemuan);
+        jadwalDB = FirebaseDatabase.getInstance().getReference();
+        jadwal = new Jadwal();
+        dokterNames = new ArrayList<>();
         binding.ivDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,14 +107,85 @@ public class PertemuanFragment extends Fragment{
                 binding.etTime.setText(time);
             }
         };
+
+        jadwalDB.child(Dokter.class.getSimpleName()).addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot childrenSnapshot:snapshot.getChildren()) {
+                    String listName = childrenSnapshot.child("nama").getValue(String.class);
+                    dokterNames.add(listName);
+                }
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,dokterNames);
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                binding.spDokter.setAdapter(arrayAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         return binding.getRoot();
+
     }
 
-    private void onClicked(View view) {
-        Bundle result = new Bundle();
-        result.putInt("page", 1);
-        Log.d("debug", "ClickMe Clickeddd!");
-        getParentFragmentManager().setFragmentResult("changePage", result);
+    private void saveJadwal(){
+        String nama = binding.etNama.getText().toString();
+        String dokter = binding.spDokter.getSelectedItem().toString();
+        String keluhan = binding.etKeluhan.getText().toString();
+        String tanggal = binding.etDate.getText().toString();
+        String waktu = binding.etTime.getText().toString();
 
+        boolean isEmptyField = false;
+
+        if(TextUtils.isEmpty(nama)){
+            isEmptyField = true;
+            binding.etNama.setError("Field ini tidak boleh kosong");
+        }
+        if(TextUtils.isEmpty(keluhan)){
+            isEmptyField = true;
+            binding.etKeluhan.setError("Field ini tidak boleh kosong");
+        }
+        if(TextUtils.isEmpty(tanggal)){
+            isEmptyField = true;
+            binding.etDate.setError("Field ini tidak boleh kosong");
+        }
+        if(TextUtils.isEmpty(waktu)){
+            isEmptyField = true;
+            binding.etTime.setError("Field ini tidak boleh kosong");
+        }
+
+        if(!isEmptyField){
+            Toast.makeText(getContext(),"Jadwal telah dibuat",Toast.LENGTH_SHORT).show();
+            DatabaseReference dbJadwal = jadwalDB.child(Jadwal.class.getSimpleName());
+
+            String id = dbJadwal.push().getKey();
+            jadwal.setId(id);
+            jadwal.setNama(nama);
+            jadwal.setDokter(dokter);
+            jadwal.setKeluhan(keluhan);
+            jadwal.setTanggal(tanggal);
+            jadwal.setWaktu(waktu);
+
+            dbJadwal.child(id).setValue(jadwal);
+            System.out.println(dbJadwal.child(id));
+
+            Bundle result = new Bundle();
+            result.putInt("page", 1);
+            Log.d("debug", "ClickMe Clickeddd!");
+            getParentFragmentManager().setFragmentResult("changePage", result);
+        }
+
+        if (!binding.etNama.getText().toString().equals(null)){
+            binding.etNama.getText().clear();
+            binding.etKeluhan.getText().clear();
+            binding.etDate.getText().clear();
+            binding.etTime.getText().clear();
+        }
+    }
+
+    private void onClickBuatPertemuan(View view) {
+        saveJadwal();
     }
 }
