@@ -118,7 +118,7 @@ public class PertemuanFragment extends Fragment{
             }
         };
 
-        jadwalDB.child(Dokter.class.getSimpleName()).addValueEventListener(new ValueEventListener(){
+        jadwalDB.child(Jadwal.class.getSimpleName()).addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot childrenSnapshot:snapshot.getChildren()) {
