@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     LihatDokterFragment lihatDokterFragment;
     EditDokterFragment editDokterFragment;
     PengaturanFragment pengaturanFragment;
+    JadwalFragment jadwalFragment;
 
     private ActivityResultLauncher launcher;
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        this.jadwalFragment = JadwalFragment.newInstance();
         this.pengaturanFragment = PengaturanFragment.newInstance();
         this.editDokterFragment = EditDokterFragment.newInstance();
         this.lihatDokterFragment = LihatDokterFragment.newInstance();
@@ -119,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
             ft.replace(binding.fragmentContainer.getId(), this.editDokterFragment).addToBackStack(null).setReorderingAllowed(true);
         }else if (page == 4){
             ft.replace(binding.fragmentContainer.getId(), this.pengaturanFragment).addToBackStack(null).setReorderingAllowed(true);
+        }else if (page == 5){
+            ft.replace(binding.fragmentContainer.getId(), this.jadwalFragment).addToBackStack(null).setReorderingAllowed(true);
         }else{
             closeApplication();
         }

@@ -38,6 +38,16 @@
             </Button>
 
             <Button
+                android:id="@+id/btn_jadwalpertemuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daftarpertemuan"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                >
+            </Button>
+
+            <Button
                 android:id="@+id/btn_dokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

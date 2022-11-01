@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35sp"
+                android:layout_marginTop="48sp"
+                android:layout_marginBottom="96sp"
+                android:textStyle="bold"
+                android:textSize="28dp"
+                android:text="@string/app_daftarpertemuan"
+                android:textColor="@color/black">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/list_jadwal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:orientation="vertical"
+            android:paddingVertical="178dp"
+            >
+
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="108sp"
+            android:gravity="center"
+            android:paddingBottom="40dp">
+
+            <Button
+                android:id="@+id/btn_kembali"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="160sp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/btn_kembali"
+                android:textAllCaps="false"
+                android:textSize="12sp">
+
+            </Button>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

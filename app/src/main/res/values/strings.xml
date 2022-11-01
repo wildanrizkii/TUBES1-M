@@ -13,6 +13,7 @@
     <string name="app_buatpertemuan">Buat Pertemuan</string>
     <string name="app_editdokter">Edit</string>
     <string name="app_pengaturan">Setting</string>
+    <string name="app_daftarpertemuan">Daftar Pertemuan</string>
     <string name="openDrawer">Open</string>
     <string name="closeDrawer">Close</string>
     <string name="btn_plus">+</string>
@@ -28,6 +29,7 @@
 
     <string name="home">Home</string>
     <string name="pertemuan">Pertemuan</string>
+    <string name="daftarpertemuan">Daftar Pertemuan</string>
     <string name="exit">Exit</string>
     <string name="version_app">tubes1-B-1-K v1.0</string>
 

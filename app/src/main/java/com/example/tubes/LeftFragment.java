@@ -30,6 +30,7 @@ public class LeftFragment extends Fragment {
         binding.btnDokter.setOnClickListener(this::onClickChangePage);
         binding.btnPertemuan.setOnClickListener(this::onClickChangePage);
         binding.btnPengaturan.setOnClickListener(this::onClickChangePage);
+        binding.btnJadwalpertemuan.setOnClickListener(this::onClickChangePage);
         return binding.getRoot();
     }
 
@@ -53,6 +54,12 @@ public class LeftFragment extends Fragment {
             Bundle result = new Bundle();
             result.putInt("page", 4);
             getParentFragmentManager().setFragmentResult("changePage", result);
+        }
+        else if(view == binding.btnJadwalpertemuan){
+            Bundle result = new Bundle();
+            result.putInt("page", 5);
+            getParentFragmentManager().setFragmentResult("changePage", result);
+
         } else {
             Bundle result = new Bundle();
             result.putInt("page", 0);
