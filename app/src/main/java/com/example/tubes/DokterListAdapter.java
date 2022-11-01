@@ -54,10 +54,13 @@ public class DokterListAdapter extends BaseAdapter {
 
         ViewHolder viewHolder = new ViewHolder(itemView);
         Dokter dokter = (Dokter) getItem(i);
-
         viewHolder.bind(dokter);
-
+        binding.ivDelete.setOnClickListener(this::onDelete);
         return binding.getRoot();
+    }
+
+    private void onDelete(View view) {
+
     }
 
     private class ViewHolder{
@@ -69,6 +72,7 @@ public class DokterListAdapter extends BaseAdapter {
         void bind(Dokter dokter){
             binding.tvNamadokter.setText(dokter.getNama());
             binding.tvDetail.setText(dokter.getDetail());
+            binding.ivDelete.setTag(dokter.getid());
         }
     }
 }

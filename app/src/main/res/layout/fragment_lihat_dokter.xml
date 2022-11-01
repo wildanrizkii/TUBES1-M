@@ -146,11 +146,8 @@
                         style="@style/Widget.AppCompat.Button.Borderless.Colored"
                         >
                     </Button>
-
                 </LinearLayout>
-
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout

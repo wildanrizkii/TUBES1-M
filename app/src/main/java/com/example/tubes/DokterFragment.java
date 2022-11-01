@@ -49,35 +49,10 @@ public class DokterFragment extends Fragment {
             binding.btnPlus.setOnClickListener(this::onClickTambah);
         }
         if (isOnline == null){
-
             checkNetworkStatus();
         }
         binding.listDokter.setOnItemClickListener(this::onClickList);
         dokters = new ArrayList<>();
-//        this.getParentFragmentManager().setFragmentResultListener("itemDokter",
-//                this, new FragmentResultListener() {
-//            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                String nama = result.getString("nama");
-//                String detail = result.getString("detail");
-//                String noTelpon = result.getString("noTelpon");
-//                add(nama,detail,noTelpon);
-//                System.out.println(nama + " " + detail + " " + noTelpon);
-//            }
-//        });
-//
-//        this.getParentFragmentManager().setFragmentResultListener("itemDokter2",
-//                this, new FragmentResultListener() {
-//            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                String nama = result.getString("nama");
-//                String detail = result.getString("detail");
-//                String noTelpon = result.getString("noTelpon");
-//                add(nama,detail,noTelpon);
-//                System.out.println(nama + " " + detail + " " + noTelpon);
-//            }
-//        });
-
         return binding.getRoot();
     }
 
