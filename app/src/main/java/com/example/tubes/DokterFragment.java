@@ -44,9 +44,12 @@ public class DokterFragment extends Fragment {
         binding = FragmentDokterBinding.inflate(inflater);
         dbDokter = FirebaseDatabase.getInstance().getReference(Dokter.class.getSimpleName());
         ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkStatus = connectivityManager.getActiveNetworkInfo();
-        if (networkStatus != null){
+        NetworkInfo isOnline = connectivityManager.getActiveNetworkInfo();
+        if (isOnline != null){
             binding.btnPlus.setOnClickListener(this::onClickTambah);
+        }
+        if (isOnline == null){
+            Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
         }
         binding.listDokter.setOnItemClickListener(this::onClickList);
         dokters = new ArrayList<>();
@@ -74,10 +77,10 @@ public class DokterFragment extends Fragment {
 //            }
 //        });
 
-        if (networkStatus == null){
+        if (isOnline == null){
             checkNetworkStatus();
         }
-        System.out.println(networkStatus);
+        System.out.println(isOnline);
         return binding.getRoot();
     }
 
@@ -128,7 +131,7 @@ public class DokterFragment extends Fragment {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
         } else {
-            Toast.makeText(getContext(), "Membutuhkan Koneksi Internet!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Membutuhkan koneksi internet!", Toast.LENGTH_LONG).show();
         }
     }
 }

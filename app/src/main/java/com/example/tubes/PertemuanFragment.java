@@ -132,7 +132,7 @@ public class PertemuanFragment extends Fragment{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getActivity(),"Terjadi Kesalahan.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -207,7 +207,7 @@ public class PertemuanFragment extends Fragment{
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
         } else {
-            Toast.makeText(getContext(), "Membutuhkan Koneksi Internet!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Membutuhkan koneksi internet!", Toast.LENGTH_LONG).show();
         }
     }
 }
