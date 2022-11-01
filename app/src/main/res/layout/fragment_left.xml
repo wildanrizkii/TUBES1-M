@@ -89,7 +89,6 @@
                 >
 
             </Button>
-
         </LinearLayout>
 
         <LinearLayout
@@ -108,7 +107,5 @@
 
             </TextView>
         </LinearLayout>
-
     </RelativeLayout>
-
 </FrameLayout>

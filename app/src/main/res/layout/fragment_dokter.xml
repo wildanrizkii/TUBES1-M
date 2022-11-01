@@ -33,10 +33,9 @@
             android:id="@+id/list_Dokter"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_marginHorizontal="36dp"
-            android:orientation="vertical"
             android:layout_centerInParent="true"
-            >
+            android:layout_marginHorizontal="36dp"
+            android:orientation="vertical">
 
         </ListView>
 

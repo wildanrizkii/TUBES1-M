@@ -50,11 +50,10 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:inputType="text"
-                android:hint="Bernadus Raka"
-                android:textStyle="italic">
+                android:hint="@string/hintNama"
+                >
 
             </EditText>
-
         </LinearLayout>
 
         <LinearLayout
@@ -63,7 +62,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="215dp"
             android:orientation="horizontal"
-
             >
 
             <TextView
@@ -82,11 +80,10 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:inputType="text"
-                android:hint="Umum"
-                android:textStyle="italic">
+                android:hint="@string/hintDokterKategori"
+                >
 
             </EditText>
-
         </LinearLayout>
 
         <LinearLayout
@@ -95,7 +92,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="258dp"
             android:orientation="horizontal"
-
             >
 
             <TextView
@@ -104,7 +100,6 @@
                 android:layout_marginRight="128sp"
                 android:text="@string/nomorhp"
                 android:textSize="18sp"
-
                 >
 
             </TextView>
@@ -113,14 +108,12 @@
                 android:id="@+id/etNohp"
                 android:layout_width="158sp"
                 android:layout_height="wrap_content"
-                android:hint="089646436360"
+                android:hint="@string/hintNomorHP"
                 android:maxLines="1"
-                android:textStyle="italic"
                 android:inputType="number"
                 >
 
             </EditText>
-
         </LinearLayout>
 
         <LinearLayout

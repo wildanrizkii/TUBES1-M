@@ -74,7 +74,8 @@ public class JadwalFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getActivity(),"Terjadi Kesalahan.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Membutuhkan koneksi internet!", Toast.LENGTH_LONG).show();
             }
         });
     }
