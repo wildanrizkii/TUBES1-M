@@ -52,6 +52,7 @@ public class DokterListAdapter extends BaseAdapter {
                     .inflate(R.layout.list_dokter, viewGroup, false);
         }
 
+
         ViewHolder viewHolder = new ViewHolder(itemView);
         Dokter dokter = (Dokter) getItem(i);
         viewHolder.bind(dokter);
