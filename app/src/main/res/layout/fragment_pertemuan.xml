@@ -55,10 +55,10 @@
                 android:id="@+id/etNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Bernadus Raka"
+                android:hint="@string/hintNama"
                 android:maxLines="1"
                 android:inputType="text"
-                android:textStyle="italic">
+                >
 
             </EditText>
 
@@ -71,7 +71,6 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="173dp"
             android:orientation="horizontal"
-
             >
 
             <TextView
@@ -94,8 +93,6 @@
                 >
 
             </Spinner>
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -123,12 +120,9 @@
                 android:layout_height="120dp"
                 android:layout_marginLeft="-33dp"
                 android:hint="Sesak berak"
-                android:maxLines="3"
-
-                android:textStyle="italic">
+                android:maxLines="3">
 
             </EditText>
-
         </LinearLayout>
 
         <LinearLayout
@@ -155,9 +149,7 @@
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-31dp"
-                android:hint="01/01/22"
-                android:text=""
-                android:textStyle="italic"
+                android:hint="@string/hintTanggal"
                 >
 
             </EditText>
@@ -170,8 +162,6 @@
                 android:src="@android:drawable/ic_menu_my_calendar">
 
             </ImageView>
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -197,8 +187,8 @@
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-31dp"
-                android:hint="10:00"
-                android:textStyle="italic">
+                android:hint="@string/hintJam"
+                >
 
             </EditText>
 
@@ -208,11 +198,10 @@
                 android:layout_height="26sp"
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="10dp"
-
-                android:src="@android:drawable/ic_lock_idle_alarm">
+                android:src="@android:drawable/ic_lock_idle_alarm"
+                >
 
             </ImageView>
-
         </LinearLayout>
 
         <LinearLayout

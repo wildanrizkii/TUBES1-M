@@ -44,7 +44,6 @@
                 android:textColor="@color/black">
 
             </TextView>
-
         </LinearLayout>
 
         <LinearLayout
@@ -68,7 +67,6 @@
                 >
 
             </Button>
-
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>
