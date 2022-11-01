@@ -40,26 +40,21 @@ public class LeftFragment extends Fragment {
             result.putInt("page", 1);
             getParentFragmentManager().setFragmentResult("changePage", result);
         }else if(view == binding.btnDokter){
-            Log.d("debug", "onClickDokter");
             Bundle result = new Bundle();
             result.putInt("page", 2);
             getParentFragmentManager().setFragmentResult("changePage", result);
         }else if(view == binding.btnPertemuan){
-            Log.d("debug", "onClickDokter");
             Bundle result = new Bundle();
             result.putInt("page", 3);
             getParentFragmentManager().setFragmentResult("changePage", result);
-        }
-        else if(view == binding.btnPengaturan){
+        }else if(view == binding.btnPengaturan){
             Bundle result = new Bundle();
             result.putInt("page", 4);
             getParentFragmentManager().setFragmentResult("changePage", result);
-        }
-        else if(view == binding.btnJadwalpertemuan){
+        }else if(view == binding.btnJadwalpertemuan){
             Bundle result = new Bundle();
             result.putInt("page", 5);
             getParentFragmentManager().setFragmentResult("changePage", result);
-
         } else {
             Bundle result = new Bundle();
             result.putInt("page", 0);

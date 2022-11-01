@@ -66,7 +66,7 @@ public class DokterListAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 String dialogTitle = "Hapus Data";
-                String dialogMessage = "Apakah anda yakin ingin menghapus Data dokter ini?";
+                String dialogMessage = "Apakah anda yakin ingin menghapus data dokter ini?";
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(binding.getRoot().getContext());
                 alertDialogBuilder.setTitle(dialogTitle);
                 alertDialogBuilder.setMessage(dialogMessage).setCancelable(false)
@@ -74,7 +74,7 @@ public class DokterListAdapter extends BaseAdapter {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dbDokter.child((String)binding.ivDelete.getTag()).removeValue();
-                                Toast.makeText(binding.getRoot().getContext(), "Deleting data...",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(binding.getRoot().getContext(), "Menghapus data...",Toast.LENGTH_SHORT).show();
                             }
                         }).setNegativeButton("Batal", new DialogInterface.OnClickListener() {
                             @Override
@@ -90,12 +90,10 @@ public class DokterListAdapter extends BaseAdapter {
     }
 
     private class ViewHolder{
-            ListDokterBinding binding;
-
+        ListDokterBinding binding;
         ViewHolder(ListDokterBinding view){
             binding = view;
         }
-
         void update(Dokter dokter,int i){
             binding.tvNamadokter.setText(dokter.getNama());
             binding.tvDetail.setText(dokter.getDetail());

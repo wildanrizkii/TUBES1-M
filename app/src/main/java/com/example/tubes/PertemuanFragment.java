@@ -78,8 +78,6 @@ public class PertemuanFragment extends Fragment{
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d("debug", "onDateSet: dd/mm/yyyy " + day + "/" + month + "/" + year);
-
                 String date = day + "/" + month + "/" + year;
                 binding.etDate.setText(date);
             }
@@ -99,7 +97,6 @@ public class PertemuanFragment extends Fragment{
         timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hour, int minute) {
-                Log.d("debug", "onTimeSet: hh/mm " + hour + ":" + minute);
                 String time = "";
                 if (hour < 10){
                     if (minute < 10){
@@ -176,16 +173,12 @@ public class PertemuanFragment extends Fragment{
             jadwal.setKeluhan(keluhan);
             jadwal.setTanggal(tanggal);
             jadwal.setWaktu(waktu);
-
             dbJadwal.child(id).setValue(jadwal);
-            System.out.println(dbJadwal.child(id));
-
             Bundle result = new Bundle();
             result.putInt("page", 1);
             Log.d("debug", "ClickMe Clickeddd!");
             getParentFragmentManager().setFragmentResult("changePage", result);
         }
-
         if (!binding.etNama.getText().toString().equals(null)){
             binding.etNama.getText().clear();
             binding.etKeluhan.getText().clear();
