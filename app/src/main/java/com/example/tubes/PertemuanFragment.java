@@ -56,7 +56,7 @@ public class PertemuanFragment extends Fragment{
             binding.btnPertemuan.setOnClickListener(this::onClickBuatPertemuan);
         }
         if (isOnline == null){
-            Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
+            checkNetworkStatus();
         }
         jadwalDB = FirebaseDatabase.getInstance().getReference();
         jadwal = new Jadwal();
@@ -136,10 +136,6 @@ public class PertemuanFragment extends Fragment{
             }
         });
 
-        if (isOnline == null){
-            checkNetworkStatus();
-        }
-
         return binding.getRoot();
     }
 
@@ -207,6 +203,7 @@ public class PertemuanFragment extends Fragment{
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
         } else {
+            Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
             Toast.makeText(getContext(), "Membutuhkan koneksi internet!", Toast.LENGTH_LONG).show();
         }
     }

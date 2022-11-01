@@ -49,7 +49,8 @@ public class DokterFragment extends Fragment {
             binding.btnPlus.setOnClickListener(this::onClickTambah);
         }
         if (isOnline == null){
-            Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
+
+            checkNetworkStatus();
         }
         binding.listDokter.setOnItemClickListener(this::onClickList);
         dokters = new ArrayList<>();
@@ -77,10 +78,6 @@ public class DokterFragment extends Fragment {
 //            }
 //        });
 
-        if (isOnline == null){
-            checkNetworkStatus();
-        }
-        System.out.println(isOnline);
         return binding.getRoot();
     }
 
@@ -131,6 +128,7 @@ public class DokterFragment extends Fragment {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
         } else {
+            Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
             Toast.makeText(getContext(), "Membutuhkan koneksi internet!", Toast.LENGTH_LONG).show();
         }
     }
