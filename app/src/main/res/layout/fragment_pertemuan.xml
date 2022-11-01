@@ -142,7 +142,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="123sp"
+                android:layout_marginRight="117sp"
                 android:text="@string/tanggal"
                 android:textSize="18sp"
 
@@ -152,7 +152,7 @@
 
             <EditText
                 android:id="@+id/etDate"
-                android:layout_width="108sp"
+                android:layout_width="110sp"
                 android:layout_height="wrap_content"
                 android:hint="01/01/22"
                 android:text=""
@@ -185,7 +185,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="138sp"
+                android:layout_marginRight="130sp"
                 android:text="@string/waktu"
                 android:textSize="18sp"
                 >
@@ -194,7 +194,7 @@
 
             <EditText
                 android:id="@+id/etTime"
-                android:layout_width="108sp"
+                android:layout_width="112sp"
                 android:layout_height="wrap_content"
                 android:hint="10:00"
                 android:textStyle="italic">

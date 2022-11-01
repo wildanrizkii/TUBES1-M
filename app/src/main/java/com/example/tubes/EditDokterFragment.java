@@ -52,7 +52,6 @@ public class EditDokterFragment extends Fragment {
     private void onClick(View view) {
         Bundle result = new Bundle();
         if(view == binding.btnSimpan){
-
             DatabaseReference dokter = dokterDB.child(Dokter.class.getSimpleName());
 
             String dokterId = this.dokter.getid();

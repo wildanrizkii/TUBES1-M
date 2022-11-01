@@ -56,6 +56,7 @@ public class DokterListAdapter extends BaseAdapter {
         Dokter dokter = (Dokter) getItem(i);
 
         viewHolder.bind(dokter);
+
         return binding.getRoot();
     }
 
