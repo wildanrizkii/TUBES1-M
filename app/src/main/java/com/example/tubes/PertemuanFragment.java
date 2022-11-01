@@ -2,6 +2,9 @@ package com.example.tubes;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -47,7 +50,14 @@ public class PertemuanFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentPertemuanBinding.inflate(inflater);
-        binding.btnPertemuan.setOnClickListener(this::onClickBuatPertemuan);
+        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo isOnline = connectivityManager.getActiveNetworkInfo();
+        if (isOnline != null){
+            binding.btnPertemuan.setOnClickListener(this::onClickBuatPertemuan);
+        }
+        if (isOnline == null){
+            Toast.makeText(getContext(), "Anda sedang offline", Toast.LENGTH_LONG).show();
+        }
         jadwalDB = FirebaseDatabase.getInstance().getReference();
         jadwal = new Jadwal();
         dokterNames = new ArrayList<>();
@@ -126,8 +136,11 @@ public class PertemuanFragment extends Fragment{
             }
         });
 
-        return binding.getRoot();
+        if (isOnline == null){
+            checkNetworkStatus();
+        }
 
+        return binding.getRoot();
     }
 
     private void saveJadwal(){
@@ -187,5 +200,14 @@ public class PertemuanFragment extends Fragment{
 
     private void onClickBuatPertemuan(View view) {
         saveJadwal();
+    }
+
+    public void checkNetworkStatus() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+        } else {
+            Toast.makeText(getContext(), "Membutuhkan Koneksi Internet!", Toast.LENGTH_LONG).show();
+        }
     }
 }

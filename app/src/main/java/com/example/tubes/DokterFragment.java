@@ -1,5 +1,8 @@
 package com.example.tubes;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,7 +43,11 @@ public class DokterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDokterBinding.inflate(inflater);
         dbDokter = FirebaseDatabase.getInstance().getReference(Dokter.class.getSimpleName());
-        binding.btnPlus.setOnClickListener(this::onClick);
+        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkStatus = connectivityManager.getActiveNetworkInfo();
+        if (networkStatus != null){
+            binding.btnPlus.setOnClickListener(this::onClickTambah);
+        }
         binding.listDokter.setOnItemClickListener(this::onClickList);
         dokters = new ArrayList<>();
 //        this.getParentFragmentManager().setFragmentResultListener("itemDokter",
@@ -66,6 +73,11 @@ public class DokterFragment extends Fragment {
 //                System.out.println(nama + " " + detail + " " + noTelpon);
 //            }
 //        });
+
+        if (networkStatus == null){
+            checkNetworkStatus();
+        }
+        System.out.println(networkStatus);
         return binding.getRoot();
     }
 
@@ -80,12 +92,11 @@ public class DokterFragment extends Fragment {
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
-    private void onClick(View view) {
+    private void onClickTambah(View view) {
         Bundle result = new Bundle();
         result.putInt("page", 21);
         Log.d("debug", "ClickMe Clickeddd!");
         getParentFragmentManager().setFragmentResult("changePage", result);
-
     }
 
     @Override
@@ -110,5 +121,14 @@ public class DokterFragment extends Fragment {
                 Toast.makeText(getActivity(),"Terjadi Kesalahan.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void checkNetworkStatus() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+        } else {
+            Toast.makeText(getContext(), "Membutuhkan Koneksi Internet!", Toast.LENGTH_LONG).show();
+        }
     }
 }
