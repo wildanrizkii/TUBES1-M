@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -57,7 +58,6 @@ public class DokterFragment extends Fragment {
     }
 
     private void onClickList(AdapterView<?> adapterView, View view, int i, long l) {
-
         Bundle rs = new Bundle();
         Bundle result = new Bundle();
         result.putInt("page", 22);
@@ -86,9 +86,10 @@ public class DokterFragment extends Fragment {
                     Dokter dokter = dokterSnapshot.getValue(Dokter.class);
                     dokters.add(dokter);
                 }
-                DokterListAdapter adapter = new DokterListAdapter(getActivity());
+                DokterListAdapter adapter = new DokterListAdapter(getContext());
                 adapter.setDokterslist(dokters);
                 binding.listDokter.setAdapter(adapter);
+                dokters.size();
             }
 
             @Override

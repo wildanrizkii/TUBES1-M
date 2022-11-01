@@ -99,24 +99,5 @@ public class TambahDokterFragment extends Fragment {
 
         }
 
-
-    }
-
-    private void onClickSimpan(View view) {
-        Bundle result = new Bundle();
-        Bundle nama = new Bundle();
-        Bundle detail = new Bundle();
-
-        nama.putString("nama", binding.etNama.getText().toString());
-        getParentFragmentManager().setFragmentResult("itemDokter1", nama);
-        detail.putString("detail", binding.etKategori.getText().toString());
-        getParentFragmentManager().setFragmentResult("itemDokter2", detail);
-
-        System.out.println(binding.etNama.getText().toString() + " " +binding.etKategori.getText().toString());
-
-
-        result.putInt("page", 2);
-        Log.d("debug", "ClickMe Clickeddd!");
-        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

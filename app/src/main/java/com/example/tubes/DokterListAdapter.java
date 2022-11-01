@@ -1,18 +1,23 @@
 package com.example.tubes;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Toast;
 
 import com.example.tubes.databinding.ListDokterBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class DokterListAdapter extends BaseAdapter {
     private Context context;
-    ListDokterBinding binding;
+    DatabaseReference dokterdb;
 
     private ArrayList<Dokter> dokterslist = new ArrayList<>();
 
@@ -42,38 +47,58 @@ public class DokterListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        ListDokterBinding binding;
+        ViewHolder viewHolder;
+        Dokter dokter = (Dokter) getItem(i);
+        dokterdb = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference dbDokter = dokterdb.child(Dokter.class.getSimpleName());
+
 
         binding = ListDokterBinding.inflate(inflater);
+        binding.tvNamadokter.setText(dokter.getNama());
+        binding.tvDetail.setText(dokter.getDetail());
+        viewHolder = new ViewHolder(binding);
+        viewHolder.update(dokter,i);
+        binding.ivDelete.setTag(dokter.getid());
+        System.out.println(binding.ivDelete.getTag());
 
-        View itemView = view;
-
-        if (itemView == null) {
-            itemView = LayoutInflater.from(context)
-                    .inflate(R.layout.list_dokter, viewGroup, false);
-        }
-
-
-        ViewHolder viewHolder = new ViewHolder(itemView);
-        Dokter dokter = (Dokter) getItem(i);
-        viewHolder.bind(dokter);
-        binding.ivDelete.setOnClickListener(this::onDelete);
+        binding.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String dialogTitle = "Hapus Data";
+                String dialogMessage = "Apakah anda yakin ingin menghapus Data dokter ini?";
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(binding.getRoot().getContext());
+                alertDialogBuilder.setTitle(dialogTitle);
+                alertDialogBuilder.setMessage(dialogMessage).setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dbDokter.child((String)binding.ivDelete.getTag()).removeValue();
+                                Toast.makeText(binding.getRoot().getContext(), "Deleting data...",Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
         return binding.getRoot();
     }
 
-    private void onDelete(View view) {
-
-    }
-
     private class ViewHolder{
+            ListDokterBinding binding;
 
-        ViewHolder(View view){
-
+        ViewHolder(ListDokterBinding view){
+            binding = view;
         }
 
-        void bind(Dokter dokter){
+        void update(Dokter dokter,int i){
             binding.tvNamadokter.setText(dokter.getNama());
             binding.tvDetail.setText(dokter.getDetail());
-            binding.ivDelete.setTag(dokter.getid());
         }
     }
 }

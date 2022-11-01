@@ -37,7 +37,6 @@ public class LihatDokterFragment extends Fragment {
         binding.btnHubungi.setOnClickListener(this::onClick);
         binding.btnEdit.setOnClickListener(this::onClick);
 
-        System.out.println("cek1");
         this.getParentFragmentManager().setFragmentResultListener("dataDokter", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
